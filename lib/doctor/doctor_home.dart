@@ -5,10 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/doctor/chat/chat_with_patient.dart';
 import 'package:icare/doctor/doctor_profile.dart';
+import 'package:icare/doctor/post/docReusblePost.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../const/const.dart';
+import '../modul/Posts.dart';
 import '../modul/Users.dart';
 import '../screens/login_screen.dart';
 import '../services/DataBaseManager.dart';
@@ -35,6 +37,14 @@ final postController = TextEditingController();
 
 class _doctorHomeScreenState extends State<doctorHomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  List _postsList = [];
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    getPostsList();
+  }
+
 
   Future<bool> _onWillPop() async {
     return (await showDialog(
@@ -138,58 +148,68 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
             ),
           ),
             body: SafeArea(
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Column(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            IconButton(
-                              onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-                              icon: Icon(Icons.menu),
-                              color: Colors.grey,
-                              iconSize: 35,
-                            ),
-                            Text(
-                              "Hi, DR: " + (userList.isNotEmpty ? toBeginningOfSentenceCase(userList[6])! : ''),
-                              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 18),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(50),
-                                child: GestureDetector(
-                                  onTap: () => Navigator.of(context).pushNamed(DoctorProfile.ID),
-                                  child: Image.asset(
-                                    'assets/images/doctor.jpg',
-                                    width: 50,
-                                    height: 50,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                        IconButton(
+                          onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+                          icon: Icon(Icons.menu),
+                          color: Colors.grey,
+                          iconSize: 35,
+                        ),
+                        Text(
+                          "Hi, DR: " + (userList.isNotEmpty ? toBeginningOfSentenceCase(userList[5])! : ''),
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 18),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: GestureDetector(
+                              onTap: () => Navigator.of(context).pushNamed(DoctorProfile.ID),
+                              child: Image.asset(
+                                'assets/images/doctor.jpg',
+                                width: 50,
+                                height: 50,
+                                fit: BoxFit.cover,
                               ),
                             ),
-                          ],
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 20, left: 20),
-                            child: null /*PostStream()*/,
                           ),
-                        )
+                        ),
                       ],
                     ),
-                  ),
-                ],
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 20, left: 20),
+                        child: /*PostStream(),*/
+                        ListView.builder(
+                          itemCount: _postsList.length,
+                          itemBuilder: (context, index) {
+                            int reverseIndex = _postsList.length - 1 - index;
+                            getPostsList();
+                            return DocReusblePost(_postsList[reverseIndex] as Posts);
+                          },
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
         ),
       );
+  }
+  Future getPostsList() async {
+    var data = await FirebaseFirestore.instance.collection('Posts').orderBy('time').get();
+    setState(() {
+      _postsList = List.from(data.docs.map((collection) => Posts.fromSnapshot(collection)));
+    });
   }
 }
 /*

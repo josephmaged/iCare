@@ -9,6 +9,7 @@ import '../services/auth_service.dart';
 
 class reusbleAppointment extends StatefulWidget {
   final Appointment _appointment;
+
   reusbleAppointment(this._appointment);
 
   @override
@@ -21,7 +22,10 @@ class _reusbleAppointmentState extends State<reusbleAppointment> {
     return Padding(
       padding: const EdgeInsets.only(top: 5, bottom: 5),
       child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), border: Border.all(color: primaryColor)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: primaryColor),
+        ),
         child: ListTile(
           onTap: null,
           leading: Image.asset(

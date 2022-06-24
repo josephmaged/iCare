@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firestore_search/firestore_search.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
+import 'package:icare/screens/user_details_screen.dart';
 import 'package:icare/services/DataBaseManager.dart';
 import 'package:icare/screens/chat/chat_with_doctor.dart';
 import 'package:icare/screens/medicine_schedule_screen.dart';
@@ -165,9 +166,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(50),
                               child: GestureDetector(
-                                onTap: () => Navigator.of(context).pushNamed(UserProfileScreen.ID),
+                                onTap: () => Navigator.of(context).pushNamed(UserDetailsScreen.ID),
                                 child: Image.asset(
-                                  'assets/images/doctor.jpg',
+                                  'assets/images/patient.png',
                                   width: 50,
                                   height: 50,
                                   fit: BoxFit.cover,

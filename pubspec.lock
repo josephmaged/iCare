@@ -448,6 +448,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0"
+  validation_textformfield:
+    dependency: "direct main"
+    description:
+      name: validation_textformfield
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.5"
   vector_math:
     dependency: transitive
     description:

@@ -4,9 +4,11 @@ import 'package:icare/doctor/chat/chat_with_patient.dart';
 import 'package:icare/doctor/chat/doctor_chat_screen.dart';
 import 'package:icare/doctor/doctor_home.dart';
 import 'package:icare/doctor/doctor_profile.dart';
+import 'package:icare/doctor/post/doc_post_comments_screen.dart';
 import 'package:icare/modul/Posts.dart';
 import 'package:icare/screens/about_us_screen.dart';
 import 'package:icare/screens/add_appointments_screen.dart';
+import 'package:icare/screens/add_relative_screen.dart';
 import 'package:icare/screens/appointments_screen.dart';
 import 'package:icare/screens/calories_screen.dart';
 import 'package:icare/screens/chat/chat_with_doctor.dart';
@@ -20,6 +22,7 @@ import 'package:icare/screens/post_comments_screen.dart';
 import 'package:icare/screens/posts_screen.dart';
 import 'package:icare/screens/signup_screen.dart';
 import 'package:icare/screens/tips_screen.dart';
+import 'package:icare/screens/user_details_screen.dart';
 import 'package:icare/screens/user_profile_screen.dart';
 import 'package:icare/screens/welcome.dart';
 import 'package:icare/screens/add_medicine_screen.dart';
@@ -70,7 +73,10 @@ class _MyAppState extends State<MyApp> {
         addAppointmentsScreen.ID: (context) => addAppointmentsScreen(),
         PostsScreen.ID: (context) => PostsScreen(),
         DoctorProfile.ID: (context) => DoctorProfile(),
-        postCommentsScreen.ID: (context) => postCommentsScreen()
+        postCommentsScreen.ID: (context) => postCommentsScreen(),
+        docPostCommentsScreen.ID: (context) => docPostCommentsScreen(),
+        UserDetailsScreen.ID: (context) => UserDetailsScreen(),
+        AddRelativeScreen.ID: (context) => AddRelativeScreen(),
       },
       home: SplashScreen(),
     );

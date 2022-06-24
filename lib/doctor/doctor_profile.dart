@@ -118,7 +118,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           children: [
                             Image.asset('assets/images/doctorProfile.png'),
                             Text(
-                              'Hello \nDR. ${toBeginningOfSentenceCase(userList[6])!}',
+                              'Hello \nDR. ${toBeginningOfSentenceCase(userList[5])!}',
                               style: const TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
                             ),
                           ],

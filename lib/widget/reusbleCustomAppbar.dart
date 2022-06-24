@@ -47,7 +47,7 @@ class ReusbleCustomAppbar extends StatelessWidget {
             child: GestureDetector(
               onTap: () => Navigator.of(context).pushNamed(UserProfileScreen.ID),
               child: Image.asset(
-                'assets/images/doctor.jpg',
+                'assets/images/patient.png',
                 width: 50,
                 height: 50,
                 fit: BoxFit.cover,

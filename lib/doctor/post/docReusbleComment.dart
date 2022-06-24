@@ -4,8 +4,8 @@ import 'package:icare/modul/Comments.dart';
 import 'package:icare/screens/post_comments_screen.dart';
 
 
-class ReusbleComment extends StatelessWidget {
-  ReusbleComment({required this.senderName, required this.comment});
+class DocReusbleComment extends StatelessWidget {
+  DocReusbleComment({required this.senderName, required this.comment});
   final String senderName;
   final String comment;
 

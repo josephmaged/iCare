@@ -3,22 +3,20 @@ import 'dart:core';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:icare/doctor/doctor_home.dart';
 import 'package:icare/modul/Posts.dart';
 import 'package:icare/widget/reusbleComment.dart';
 import 'package:intl/intl.dart';
 
-import '../modul/Comments.dart';
-import '../widget/reusblePost.dart';
-import 'home_screen.dart';
 
 
 final _firestore = FirebaseFirestore.instance;
 
-class postCommentsScreen extends StatefulWidget {
-  static const String ID = "PostCommentsScreen";
+class docPostCommentsScreen extends StatefulWidget {
+  static const String ID = "DocPostCommentsScreen";
 
   @override
-  State<postCommentsScreen> createState() => _postCommentsScreenState();
+  State<docPostCommentsScreen> createState() => _docPostCommentsScreenState();
 }
 
 var postArg;
@@ -27,7 +25,7 @@ String? postContent;
 DateTime sentTime = DateTime.now();
 final commentController = TextEditingController();
 
-class _postCommentsScreenState extends State<postCommentsScreen> {
+class _docPostCommentsScreenState extends State<docPostCommentsScreen> {
   List _commentsList = [];
 
   @override
@@ -127,9 +125,9 @@ class _postCommentsScreenState extends State<postCommentsScreen> {
                               } else {
                                 _firestore.collection('Posts').doc(_post.post).collection('Comments').add(
                                   {
-                                    'sender email': loggedInUserEmail,
+                                    'sender email': loggedInDoctorEmail,
                                     'sender name':
-                                    '${toBeginningOfSentenceCase(userList[3])} ${toBeginningOfSentenceCase(userList[2])}',
+                                    '${toBeginningOfSentenceCase(userList[5])} ${toBeginningOfSentenceCase(userList[4])}',
                                     'time': sentTime,
                                     'comment': commentController.text
                                   },
