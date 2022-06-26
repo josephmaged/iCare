@@ -113,7 +113,7 @@ class _AddRelativeScreenState extends State<AddRelativeScreen> {
                               ),
                         const SizedBox(height: 20),
                         EmailValidationTextField(
-                          whenTextFieldEmpty: "Please enter  email",
+                          whenTextFieldEmpty: "Please enter email",
                           validatorMassage: "Please enter valid email",
                           decoration: InputDecoration(
                             hintText: "Enter Relative Email",
@@ -145,7 +145,7 @@ class _AddRelativeScreenState extends State<AddRelativeScreen> {
                                   ),
                                   primary: primaryColor,
                                 ),
-                                onPressed: _relativesList.length == 5 || relativeController.text == ""
+                                onPressed: _relativesList.length == 5
                                     ? null
                                     : () async {
                                         try {

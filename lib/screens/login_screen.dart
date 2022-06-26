@@ -10,6 +10,7 @@ import 'package:icare/doctor/doctor_home.dart';
 import 'package:icare/modul/Users.dart';
 import 'package:icare/screens/home_screen.dart';
 import 'package:icare/screens/signup_screen.dart';
+import 'package:icare/screens/welcome.dart';
 import 'package:icare/services/DataBaseManager.dart';
 import 'package:icare/services/auth_service.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -88,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         IconButton(
-                          onPressed: () => Navigator.pop(context),
+                          onPressed: () => Navigator.of(context).pushReplacementNamed(welcomeScreen.ID),
                           icon: Icon(Icons.arrow_back),
                           color: Colors.grey,
                           iconSize: 35,

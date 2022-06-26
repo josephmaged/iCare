@@ -8,6 +8,7 @@ import 'package:icare/doctor/post/doc_post_comments_screen.dart';
 import 'package:icare/modul/Posts.dart';
 import 'package:icare/screens/about_us_screen.dart';
 import 'package:icare/screens/add_appointments_screen.dart';
+import 'package:icare/screens/add_measurements.dart';
 import 'package:icare/screens/add_relative_screen.dart';
 import 'package:icare/screens/appointments_screen.dart';
 import 'package:icare/screens/calories_screen.dart';
@@ -20,6 +21,7 @@ import 'package:icare/screens/login_screen.dart';
 import 'package:icare/screens/medicine_schedule_screen.dart';
 import 'package:icare/screens/post_comments_screen.dart';
 import 'package:icare/screens/posts_screen.dart';
+import 'package:icare/screens/report_screen.dart';
 import 'package:icare/screens/signup_screen.dart';
 import 'package:icare/screens/tips_screen.dart';
 import 'package:icare/screens/user_details_screen.dart';
@@ -77,6 +79,8 @@ class _MyAppState extends State<MyApp> {
         docPostCommentsScreen.ID: (context) => docPostCommentsScreen(),
         UserDetailsScreen.ID: (context) => UserDetailsScreen(),
         AddRelativeScreen.ID: (context) => AddRelativeScreen(),
+        reportScreen.ID: (context) => reportScreen(),
+        addMeasurements.ID: (context) => addMeasurements(),
       },
       home: SplashScreen(),
     );

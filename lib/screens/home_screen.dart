@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firestore_search/firestore_search.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
+import 'package:icare/screens/report_screen.dart';
 import 'package:icare/screens/user_details_screen.dart';
 import 'package:icare/services/DataBaseManager.dart';
 import 'package:icare/screens/chat/chat_with_doctor.dart';
@@ -271,11 +272,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 case 1:
                   Navigator.of(context).pushNamed(scheduleScreen.ID);
                   break;
-                /*case 2:
-                  Navigator.of(context).pushNamed(welcomeScreen.ID);
-                  break;*/
-                case 3:
-                  // Navigator.of(context).pushNamed(welcomeScreen.ID);
+                case 2:
+                  Navigator.of(context).pushNamed(reportScreen.ID);
                   break;
               }
             },
@@ -288,11 +286,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icon(Icons.medical_services),
                 label: 'Medications',
               ),
-              /*
-              BottomNavigationBarItem(
-                icon: Icon(Icons.schedule),
-                label: 'Schedule',
-              ),*/
               BottomNavigationBarItem(
                 icon: Icon(Icons.description),
                 label: 'Reports',

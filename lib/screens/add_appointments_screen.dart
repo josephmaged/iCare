@@ -73,19 +73,20 @@ class _addAppointmentsScreenState extends State<addAppointmentsScreen> {
                             children: [
                               const SizedBox(height: 15),
                               Image.asset('assets/images/calender.png'),
+                              const SizedBox(height: 15),
                               Row(
                                 children: const [
                                   Icon(
                                     Icons.add_circle_outline,
                                     color: primaryColor,
-                                    size: 50,
+                                    size: 35,
                                   ),
                                   SizedBox(
                                     width: 10,
                                   ),
                                   Text(
                                     'Add New Appointment',
-                                    style: TextStyle(color: primaryColor, fontSize: 22),
+                                    style: TextStyle(color: primaryColor, fontSize: 22, fontWeight: FontWeight.bold),
                                   )
                                 ],
                               ),
