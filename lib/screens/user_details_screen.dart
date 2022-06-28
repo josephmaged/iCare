@@ -90,7 +90,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                           ),
                         ),
                         const SizedBox(height: 35),
-                        GestureDetector(
+                        /*GestureDetector(
                           onTap: () => Navigator.of(context).pushNamed(UserProfileScreen.ID),
                           child: Container(
                             height: 55,
@@ -108,7 +108,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                               ),
                             ),
                           ),
-                        ),
+                        ),*/
                         const SizedBox(height: 35),
                         GestureDetector(
                           onTap: () => Navigator.of(context).pushNamed(AddRelativeScreen.ID),

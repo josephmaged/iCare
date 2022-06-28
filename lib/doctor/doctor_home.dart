@@ -18,7 +18,6 @@ import '../widget/reusblePost.dart';
 
 final _firestore = FirebaseFirestore.instance;
 
-
 class doctorHomeScreen extends StatefulWidget {
   static const String ID = "DoctorHomeScreen";
 
@@ -31,7 +30,8 @@ var loggedInDoctor;
 var loggedInDoctorEmail;
 List userList = [];
 
-DateTime sentTime = DateTime.now();
+
+    DateTime sentTime = DateTime.now();
 
 final postController = TextEditingController();
 
@@ -39,31 +39,32 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   List _postsList = [];
+
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     getPostsList();
   }
 
-
   Future<bool> _onWillPop() async {
     return (await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Are you sure?'),
-        content: const Text('Do you want to exit an App'),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false), //<-- SEE HERE
-            child: const Text('No'),
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Are you sure?'),
+            content: const Text('Do you want to exit an App'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false), //<-- SEE HERE
+                child: const Text('No'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true), // <-- SEE HERE
+                child: const Text('Yes'),
+              ),
+            ],
           ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true), // <-- SEE HERE
-            child: const Text('Yes'),
-          ),
-        ],
-      ),
-    )) ??
+        )) ??
         false; //<-- SEE HERE
   }
 
@@ -93,6 +94,7 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
     } else {
       setState(() {
         userList = resultdata;
+
       });
     }
   }
@@ -102,7 +104,7 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: GestureDetector(
-        onTap: (){
+        onTap: () {
           FocusManager.instance.primaryFocus?.unfocus();
         },
         child: Scaffold(
@@ -114,10 +116,10 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
                 DrawerHeader(
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                        colorFilter: ColorFilter.mode(Colors.lightBlueAccent.withOpacity(0.5), BlendMode.dstATop),
-                        image: AssetImage("assets/images/drawerBackground.jpg"),
-                        fit: BoxFit.fitWidth,
-                      )),
+                    colorFilter: ColorFilter.mode(Colors.lightBlueAccent.withOpacity(0.5), BlendMode.dstATop),
+                    image: AssetImage("assets/images/drawerBackground.jpg"),
+                    fit: BoxFit.fitWidth,
+                  )),
                   child: Image.asset(
                     "assets/images/mainLogo.png",
                     alignment: Alignment.topLeft,
@@ -147,64 +149,68 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
               ],
             ),
           ),
-            body: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        IconButton(
-                          onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-                          icon: Icon(Icons.menu),
-                          color: Colors.grey,
-                          iconSize: 35,
-                        ),
-                        Text(
-                          "Hi, DR: " + (userList.isNotEmpty ? toBeginningOfSentenceCase(userList[5])! : ''),
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 18),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: GestureDetector(
-                              onTap: () => Navigator.of(context).pushNamed(DoctorProfile.ID),
-                              child: Image.asset(
-                                'assets/images/doctor.jpg',
-                                width: 50,
-                                height: 50,
-                                fit: BoxFit.cover,
-                              ),
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 15),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+                        icon: Icon(Icons.menu),
+                        color: Colors.grey,
+                        iconSize: 35,
+                      ),
+                      Text(
+                        "Hi, DR: " +
+                            (userList.length != 10
+                                ? toBeginningOfSentenceCase(userList[3])!
+                                : toBeginningOfSentenceCase(userList[6])!),
+                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 18),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: GestureDetector(
+                            onTap: () => Navigator.of(context).pushNamed(DoctorProfile.ID),
+                            child: Image.asset(
+                              'assets/images/doctor.jpg',
+                              width: 50,
+                              height: 50,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20, left: 20),
-                        child: /*PostStream(),*/
-                        ListView.builder(
-                          itemCount: _postsList.length,
-                          itemBuilder: (context, index) {
-                            int reverseIndex = _postsList.length - 1 - index;
-                            getPostsList();
-                            return DocReusblePost(_postsList[reverseIndex] as Posts);
-                          },
-                        ),
                       ),
-                    )
-                  ],
-                ),
+                    ],
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 20, left: 20),
+                      child: /*PostStream(),*/
+                          ListView.builder(
+                        itemCount: _postsList.length,
+                        itemBuilder: (context, index) {
+                          int reverseIndex = _postsList.length - 1 - index;
+                          getPostsList();
+                          return DocReusblePost(_postsList[reverseIndex] as Posts);
+                        },
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
           ),
         ),
-      );
+      ),
+    );
   }
+
   Future getPostsList() async {
     var data = await FirebaseFirestore.instance.collection('Posts').orderBy('time').get();
     setState(() {
@@ -251,4 +257,3 @@ class PostStream extends StatelessWidget {
     );
   }
 }*/
-

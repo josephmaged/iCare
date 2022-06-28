@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:icare/screens/home_screen.dart';
+import 'package:icare/screens/user_details_screen.dart';
 import 'package:icare/screens/user_profile_screen.dart';
 import 'package:intl/intl.dart';
 
@@ -45,7 +46,7 @@ class ReusbleCustomAppbar extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(50),
             child: GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed(UserProfileScreen.ID),
+              onTap: () => Navigator.of(context).pushNamed(UserDetailsScreen.ID),
               child: Image.asset(
                 'assets/images/patient.png',
                 width: 50,

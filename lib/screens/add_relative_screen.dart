@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:icare/modul/Relatives.dart';
 import 'package:icare/widget/reusbleRelative.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:validation_textformfield/validation_textformfield.dart';
 
 import '../const/const.dart';
@@ -152,6 +153,9 @@ class _AddRelativeScreenState extends State<AddRelativeScreen> {
                                           await createRelative(
                                             relativeEmail: relativeController.text,
                                           );
+
+                                          final SharedPreferences relativePreference = await SharedPreferences.getInstance();
+                                          relativePreference.setString('relativeEmail', relativeController.text);
                                         } catch (e) {
                                           print(e);
                                         }

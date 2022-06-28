@@ -48,6 +48,7 @@ dependencies:
   firestore_search: ^0.1.9
   validation_textformfield: ^2.2.5
   animated_horizontal_calendar: ^0.0.3
+  flutter_email_sender: ^5.1.0
 
 dev_dependencies:
   flutter_test:

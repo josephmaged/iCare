@@ -14,6 +14,7 @@ import 'package:icare/screens/appointments_screen.dart';
 import 'package:icare/screens/calories_screen.dart';
 import 'package:icare/screens/chat/chat_with_doctor.dart';
 import 'package:icare/screens/chat/chat_screen.dart';
+import 'package:icare/screens/display_doctor_screen.dart';
 import 'package:icare/screens/event_details_screen.dart';
 import 'package:icare/screens/exercise_screen.dart';
 import 'package:icare/screens/home_screen.dart';

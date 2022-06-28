@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:icare/modul/Medicine.dart';
 
+import 'auth_service.dart';
+
 class DataBaseManager {
 
   final CollectionReference userData = FirebaseFirestore.instance.collection('Users');
@@ -32,4 +34,5 @@ class DataBaseManager {
       print(e.toString());
     }
   }
+
 }

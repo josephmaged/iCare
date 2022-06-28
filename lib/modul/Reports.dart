@@ -17,6 +17,14 @@ class Reports{
     'Measurement Time' : time
   };
 
+  Reports.fromJson(Map<String, dynamic> json){
+    glucose = json['Glucose'];
+    bloodPressure = json['Blood Pressure'];
+    heartRate = json['Heart Rate'];
+    weight = json['Weight'];
+    time = json['Measurement Time'];
+  }
+
   Reports.fromSnapshot(snapshot)
   : glucose = snapshot.data()['Glucose'],
   bloodPressure = snapshot.data()['Blood Pressure'],

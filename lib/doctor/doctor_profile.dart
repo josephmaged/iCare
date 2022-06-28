@@ -48,8 +48,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
 
   var dateFormat = DateFormat('dd-MM-yyyy');
   DateTime birthDate = DateTime(2010);
-/*
-  Users _users = Users();*/
+
 
   @override
   void initState() {
@@ -118,7 +117,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           children: [
                             Image.asset('assets/images/doctorProfile.png'),
                             Text(
-                              'Hello \nDR. ${toBeginningOfSentenceCase(userList[5])!}',
+                              'Hello \nDR. ${userList.length!=10 ? toBeginningOfSentenceCase(userList[3])! : toBeginningOfSentenceCase(userList[6])!}',
                               style: const TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
                             ),
                           ],
@@ -130,7 +129,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.only(top: 50),
               child: SingleChildScrollView(
                 child: Container(
                   margin: const EdgeInsets.only(top: 400),
@@ -317,6 +316,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                     'Clinic Address': clinicAddrController.text,
                                     'About Doctor': aboutController.text,
                                   });
+                                  Navigator.of(context).pushReplacementNamed(doctorHomeScreen.ID);
                                 }
                               },
                               child: const Text(

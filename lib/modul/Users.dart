@@ -53,6 +53,11 @@ class Users {
               lastName: dataMap['Last Name'],
               ruleID: dataMap['Rule ID'],
               userEmail: dataMap['User Email'],
+              birthday: dataMap['Birthday'],
+              gender: dataMap['Gender'],
+              phone: dataMap['Phone'],
+              clinicAddress: dataMap['Clinic Address'],
+              aboutDoc: dataMap['About Doctor'],
               docMajor: dataMap['Doctor Major']);
         })
         .where((element) => element.ruleID == 'true')

@@ -17,6 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../modul/Users.dart';
 import '../widget/homeBody.dart';
+import 'display_doctor_screen.dart';
 import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -211,32 +212,42 @@ class _HomeScreenState extends State<HomeScreen> {
                             itemCount: dataList.length,
                             itemBuilder: (context, index) {
                               final Users data = dataList[index];
-                              return Container(
-                                padding: const EdgeInsets.all(8),
-                                margin: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(border: Border.all(color: primaryColor)),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8),
-                                      child: Text(
-                                        'Dr.${toBeginningOfSentenceCase(data.firstName)}',
-                                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                                      ),
+                              return GestureDetector(
+                                onTap: ()=>  {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisplayDoctorScreen(data),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(bottom: 8, left: 8, right: 8),
-                                      child: Text(
-                                        '${data.docMajor}',
-                                        style: TextStyle(
-                                          fontSize: 18
+                                  ),
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(8),
+                                  margin: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(border: Border.all(color: primaryColor)),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(
+                                          'Dr.${toBeginningOfSentenceCase(data.firstName)}',
+                                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(bottom: 8, left: 8, right: 8),
+                                        child: Text(
+                                          '${data.docMajor}',
+                                          style: TextStyle(
+                                            fontSize: 18
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               );
                             });
