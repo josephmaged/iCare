@@ -60,6 +60,7 @@ class _addAppointmentsScreenState extends State<addAppointmentsScreen> {
                   const SizedBox(height: 80),
                   Expanded(
                     child: Container(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
                       decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),

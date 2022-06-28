@@ -30,8 +30,9 @@ var loggedInDoctor;
 var loggedInDoctorEmail;
 List userList = [];
 
+Map<String, dynamic> docData = Users().toJson();
 
-    DateTime sentTime = DateTime.now();
+DateTime sentTime = DateTime.now();
 
 final postController = TextEditingController();
 
@@ -40,12 +41,6 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
 
   List _postsList = [];
 
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    getPostsList();
-  }
 
   Future<bool> _onWillPop() async {
     return (await showDialog(
@@ -73,6 +68,8 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
     super.initState();
     getCurrentUser();
     fetchDatabaseList();
+    getDoctorData();
+    getPostsList();
   }
 
   void getCurrentUser() {
@@ -86,7 +83,6 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
       print(e);
     }
   }
-
   fetchDatabaseList() async {
     dynamic resultdata = await DataBaseManager().getUserData(email: loggedInDoctorEmail);
     if (resultdata == null) {
@@ -94,9 +90,20 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
     } else {
       setState(() {
         userList = resultdata;
-
       });
     }
+  }
+
+  getDoctorData() async {
+    await FirebaseFirestore.instance
+        .collection('Users')
+        .where('User Email', isEqualTo: loggedInDoctorEmail)
+        .get()
+        .then((doctorData) {
+      if (doctorData.docs.isNotEmpty) {
+        docData = doctorData.docs.single.data();
+      }
+    });
   }
 
   @override
@@ -165,10 +172,7 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
                         iconSize: 35,
                       ),
                       Text(
-                        "Hi, DR: " +
-                            (userList.length != 10
-                                ? toBeginningOfSentenceCase(userList[3])!
-                                : toBeginningOfSentenceCase(userList[6])!),
+                        "Hi, DR: ${toBeginningOfSentenceCase(docData['First Name'])}",
                         style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       Padding(
@@ -191,8 +195,7 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.only(right: 20, left: 20),
-                      child: /*PostStream(),*/
-                          ListView.builder(
+                      child: ListView.builder(
                         itemCount: _postsList.length,
                         itemBuilder: (context, index) {
                           int reverseIndex = _postsList.length - 1 - index;
@@ -213,6 +216,7 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
 
   Future getPostsList() async {
     var data = await FirebaseFirestore.instance.collection('Posts').orderBy('time').get();
+    if (!mounted) return;
     setState(() {
       _postsList = List.from(data.docs.map((collection) => Posts.fromSnapshot(collection)));
     });

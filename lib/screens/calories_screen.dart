@@ -139,6 +139,7 @@ class _caloriesScreenState extends State<caloriesScreen> {
                   SizedBox(height: 80),
                   Expanded(
                     child: Container(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(

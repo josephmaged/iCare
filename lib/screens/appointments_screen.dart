@@ -55,6 +55,7 @@ class _appointmentScreenState extends State<appointmentScreen> {
                   SizedBox(height: 80),
                   Expanded(
                     child: Container(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
@@ -150,6 +151,8 @@ class _appointmentScreenState extends State<appointmentScreen> {
         .collection('Appointment')
         .orderBy('Appointment Day', descending: true)
         .get();
+
+    if (!mounted) return;
 
     setState(() {
       _appointmentList = List.from(data.docs.map((collection) => Appointment.fromSnapshot(collection)));

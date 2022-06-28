@@ -74,10 +74,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.only(top: 50),
               child: SingleChildScrollView(
                 child: Container(
-                  margin: const EdgeInsets.only(top: 400),
+                  margin: const EdgeInsets.only(top: 380),
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(20),

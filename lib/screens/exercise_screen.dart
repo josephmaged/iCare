@@ -36,6 +36,7 @@ class _exerciseScreenState extends State<exerciseScreen> {
                   SizedBox(height: 80),
                   Expanded(
                     child: Container(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),

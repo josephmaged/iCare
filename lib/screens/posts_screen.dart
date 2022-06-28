@@ -156,6 +156,7 @@ class _PostsScreenState extends State<PostsScreen> {
 
   Future getPostsList() async {
     var data = await FirebaseFirestore.instance.collection('Posts').orderBy('time').get();
+    if (!mounted) return;
     setState(() {
       _postsList = List.from(data.docs.map((collection) => Posts.fromSnapshot(collection)));
     });

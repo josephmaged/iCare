@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
+import 'package:icare/modul/Appointment.dart';
 import 'package:icare/modul/Relatives.dart';
 import 'package:icare/modul/Reports.dart';
 import 'package:icare/screens/add_measurements.dart';
@@ -27,6 +28,7 @@ var selectedDate = now.toString().substring(0, 10);
 class _reportScreenState extends State<reportScreen> {
   List<Reports> _reportList = [];
   List<Relatives> _relativeList = [];
+  List<Appointment> _appointmentList = [];
 
   @override
   void didChangeDependencies() {

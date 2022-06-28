@@ -3,7 +3,6 @@ import 'package:icare/modul/Users.dart';
 import 'package:intl/intl.dart';
 
 import '../const/const.dart';
-import '../services/DataBaseManager.dart';
 
 class DisplayDoctorScreen extends StatefulWidget {
   static const String ID = "DisplayDoctorScreen";
@@ -19,30 +18,9 @@ List displayDoctorList = [];
 
 class _DisplayDoctorScreenState extends State<DisplayDoctorScreen> {
 
-/*
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    fetchDatabaseList();
-  }
-
-*/
-
-/*  fetchDatabaseList() async {
-    dynamic resultdata = await DataBaseManager().getUserData(email: doctorProfile);
-    if (resultdata == null) {
-      print("enable to get ");
-    } else {
-      setState(() {
-        displayDoctorList = resultdata;
-      });
-    }
-  }*/
 
   @override
   Widget build(BuildContext context) {
-/*
-    doctorProfile = ModalRoute.of(context)!.settings.arguments;*/
     
     return Scaffold(
       body: SafeArea(

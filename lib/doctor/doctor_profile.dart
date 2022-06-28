@@ -117,7 +117,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           children: [
                             Image.asset('assets/images/doctorProfile.png'),
                             Text(
-                              'Hello \nDR. ${userList.length!=10 ? toBeginningOfSentenceCase(userList[3])! : toBeginningOfSentenceCase(userList[6])!}',
+                              'Hello \nDR. ${toBeginningOfSentenceCase(docData['First Name'])}',
                               style: const TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
                             ),
                           ],
@@ -132,7 +132,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
               padding: const EdgeInsets.only(top: 50),
               child: SingleChildScrollView(
                 child: Container(
-                  margin: const EdgeInsets.only(top: 400),
+                  margin: const EdgeInsets.only(top: 380),
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(20),

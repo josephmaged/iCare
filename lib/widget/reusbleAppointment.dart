@@ -42,7 +42,17 @@ class _reusbleAppointmentState extends State<reusbleAppointment> {
                 icon: Icon(Icons.check_circle),
                 color: primaryColor,
                 iconSize: 35,
-                onPressed: () {},
+                onPressed: () async {
+                  try {
+                    await approvedAppointment(
+                        appointmentDay: widget._appointment.day!,
+                        appointmentTime: widget._appointment.time!,
+                        doctorName: widget._appointment.doctorName!);
+                    deleteAppointment();
+                  } catch (e) {
+                    print(e);
+                  }
+                },
               ), // icon-1
               IconButton(
                 icon: Icon(Icons.cancel),
@@ -50,12 +60,7 @@ class _reusbleAppointmentState extends State<reusbleAppointment> {
                 iconSize: 35,
                 onPressed: () {
                   setState(() {
-                    FirebaseFirestore.instance
-                        .collection('Users')
-                        .doc(AuthService().currentUser!.email)
-                        .collection('Appointment')
-                        .doc(widget._appointment.doctorName)
-                        .delete();
+                    deleteAppointment();
                   });
                 },
               ), // icon-2
@@ -64,5 +69,28 @@ class _reusbleAppointmentState extends State<reusbleAppointment> {
         ),
       ),
     );
+  }
+
+  Future<void> approvedAppointment(
+      {required String doctorName, required String appointmentDay, required String appointmentTime}) async {
+    widget._appointment.doctorName = doctorName;
+    widget._appointment.day = appointmentDay;
+    widget._appointment.time = appointmentTime;
+
+    await FirebaseFirestore.instance
+        .collection('Users')
+        .doc(AuthService().currentUser!.email)
+        .collection('Approved Appointment')
+        .doc(doctorName)
+        .set(widget._appointment.toJson());
+  }
+
+  Future<void> deleteAppointment() async {
+    FirebaseFirestore.instance
+        .collection('Users')
+        .doc(AuthService().currentUser!.email)
+        .collection('Appointment')
+        .doc(widget._appointment.doctorName)
+        .delete();
   }
 }

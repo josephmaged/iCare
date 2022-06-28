@@ -167,6 +167,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                       print(ruleID);
                                       showSpinner = false;
                                     } catch (e) {
+                                      String errorE = e.toString();
+                                      if (errorE == '[firebase_auth/unknown] Given String is empty or null') {
+                                        var snackBar = SnackBar(content: Text('Please fill empty.'));
+                                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                      } else if (errorE ==
+                                          '[firebase_auth/invalid-email] The email address is badly formatted.') {
+                                        var snackBar = SnackBar(content: Text('Please enter a correct email.'));
+                                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                      } else if (errorE ==
+                                          '[firebase_auth/user-not-found] There is no user record corresponding to this identifier. The user may have been deleted.') {
+                                        var snackBar = SnackBar(content: Text('Email not found.'));
+                                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                      }
                                       print(e);
                                     }
                                   },

@@ -127,7 +127,7 @@ class _docPostCommentsScreenState extends State<docPostCommentsScreen> {
                                   {
                                     'sender email': loggedInDoctorEmail,
                                     'sender name':
-                                    '${toBeginningOfSentenceCase(userList[5])} ${toBeginningOfSentenceCase(userList[4])}',
+                                    '${toBeginningOfSentenceCase(docData['First Name'])} ${toBeginningOfSentenceCase(docData['Last Name'])}',
                                     'time': sentTime,
                                     'comment': commentController.text
                                   },
@@ -195,7 +195,7 @@ class CommentsStream extends StatelessWidget {
         return Expanded(
           child: ListView(
             reverse: true,
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             children: commentBubbles,
           ),
         );

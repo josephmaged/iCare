@@ -20,6 +20,7 @@ import 'package:icare/screens/exercise_screen.dart';
 import 'package:icare/screens/home_screen.dart';
 import 'package:icare/screens/login_screen.dart';
 import 'package:icare/screens/medicine_schedule_screen.dart';
+import 'package:icare/screens/notifications_screen.dart';
 import 'package:icare/screens/post_comments_screen.dart';
 import 'package:icare/screens/posts_screen.dart';
 import 'package:icare/screens/report_screen.dart';
@@ -82,6 +83,7 @@ class _MyAppState extends State<MyApp> {
         AddRelativeScreen.ID: (context) => AddRelativeScreen(),
         reportScreen.ID: (context) => reportScreen(),
         addMeasurements.ID: (context) => addMeasurements(),
+        NotificationsScreen.ID: (context) => NotificationsScreen(),
       },
       home: SplashScreen(),
     );

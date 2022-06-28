@@ -6,6 +6,7 @@ import 'package:icare/screens/user_profile_screen.dart';
 import 'package:intl/intl.dart';
 
 import 'home_screen.dart';
+import 'notifications_screen.dart';
 
 class UserDetailsScreen extends StatefulWidget {
   static const String ID = "UserDetailsScreen";
@@ -91,7 +92,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                         ),
                         const SizedBox(height: 35),
                         /*GestureDetector(
-                          onTap: () => Navigator.of(context).pushNamed(UserProfileScreen.ID),
+                          onTap: () => Navigator.of(context).pushNamed(NotificationsScreen.ID),
                           child: Container(
                             height: 55,
                             padding: const EdgeInsets.only(left: 15),
