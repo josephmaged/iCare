@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/modul/Relatives.dart';
 import 'package:icare/widget/reusbleRelative.dart';
@@ -13,6 +13,8 @@ import 'home_screen.dart';
 
 class AddRelativeScreen extends StatefulWidget {
   static const String ID = "AddRelativeScreen";
+
+  AddRelativeScreen({Key? key}) : super(key: key);
 
   @override
   _AddRelativeScreenState createState() => _AddRelativeScreenState();
@@ -157,7 +159,9 @@ class _AddRelativeScreenState extends State<AddRelativeScreen> {
                                           final SharedPreferences relativePreference = await SharedPreferences.getInstance();
                                           relativePreference.setString('relativeEmail', relativeController.text);
                                         } catch (e) {
-                                          print(e);
+                                          if (kDebugMode) {
+                                            print(e);
+                                          }
                                         }
                                         relativeController.clear();
                                         getUserRelativesList();

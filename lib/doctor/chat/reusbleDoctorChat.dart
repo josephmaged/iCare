@@ -1,22 +1,19 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 import 'package:icare/doctor/chat/doctor_chat_screen.dart';
 import 'package:icare/modul/Users.dart';
-import 'package:icare/screens/chat/chat_screen.dart';
 
 class reusbleDoctorChat extends StatelessWidget {
   final Users _users;
 
-  reusbleDoctorChat(this._users);
+  const reusbleDoctorChat(this._users, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5),
       child: ListTile(
-        onTap: () => /*Navigator.of(context).pushNamed(chatScreen.ID),*/
+        onTap: () =>
         {
               Navigator.push(
                 context,
@@ -38,13 +35,13 @@ class reusbleDoctorChat extends StatelessWidget {
         ),
         title: Text(
           "${_users.firstName}",
-          style: TextStyle(color: darkTextColor),
+          style: const TextStyle(color: darkTextColor),
         ),
         /*subtitle: Text(
           "test",
           style: TextStyle(color: lightTextColor),
         ),*/
-        trailing: Icon(Icons.chat_rounded, size: 30, color: primaryColor),
+        trailing: const Icon(Icons.chat_rounded, size: 30, color: primaryColor),
       ),
     );
   }

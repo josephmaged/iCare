@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_new, prefer_const_literals_to_create_immutables, curly_braces_in_flow_control_structures, avoid_print, non_constant_identifier_names
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 import 'package:icare/doctor/chat/chat_with_patient.dart';
@@ -63,27 +62,26 @@ class _SignupScreenState extends State<SignupScreen> {
           borderRadius: BorderRadius.circular(25),
         ),
         hintText: hintTitle,
-        hintStyle:
-            TextStyle(fontSize: 18, color: lightTextColor, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+        hintStyle: const TextStyle(
+            fontSize: 18, color: lightTextColor, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
       ),
       keyboardType: keyboardType,
     );
   }
 
-  Users _users = Users();
+  final Users _users = Users();
 
-  Future<void> createUser({
-    required String firstName,
-    required String lastName,
-    required String ruleID,
-    required String userEmail,
-    String? doctorMajor,
-    String? Gender,
-    String? Birthday,
-    String? phone,
-    String? clinicAddress,
-    String? aboutDoc
-  }) async {
+  Future<void> createUser(
+      {required String firstName,
+      required String lastName,
+      required String ruleID,
+      required String userEmail,
+      String? doctorMajor,
+      String? Gender,
+      String? Birthday,
+      String? phone,
+      String? clinicAddress,
+      String? aboutDoc}) async {
     _users.firstName = firstName;
     _users.lastName = lastName;
     _users.ruleID = ruleID;
@@ -100,10 +98,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
-    final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-    final int finalKeyboardHeight = keyboardHeight.toInt() - 500;
-
     return Scaffold(
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
@@ -111,7 +105,7 @@ class _SignupScreenState extends State<SignupScreen> {
           child: Stack(
             children: [
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(image: AssetImage('assets/images/background.png'), fit: BoxFit.cover),
                 ),
                 child: Column(
@@ -122,12 +116,12 @@ class _SignupScreenState extends State<SignupScreen> {
                       children: [
                         IconButton(
                           onPressed: () => Navigator.pop(context),
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           color: Colors.grey,
                           iconSize: 35,
                         ),
                         Expanded(child: Image.asset('assets/images/signup.png')),
-                        SizedBox(width: 35),
+                        const SizedBox(width: 35),
                       ],
                     ),
                   ],
@@ -138,7 +132,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: SingleChildScrollView(
                   child: Container(
                     margin: const EdgeInsets.only(top: 250),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25),
@@ -146,7 +140,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       color: Colors.white,
                     ),
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
                       ),
@@ -156,33 +150,33 @@ class _SignupScreenState extends State<SignupScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            SizedBox(height: 10),
-                            Center(
+                            const SizedBox(height: 10),
+                            const Center(
                               child: Text(
                                 'Sign Up',
                                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: primaryColor),
                               ),
                             ),
-                            SizedBox(height: 20),
-                            userInput(firstNameController, 'First Name', TextInputType.name, Icon(Icons.person)),
-                            SizedBox(height: 20),
-                            userInput(
-                                lastNameController, 'Last Name', TextInputType.name, Icon(Icons.perm_contact_cal)),
-                            SizedBox(height: 20),
-                            userInput(emailController, 'Email', TextInputType.emailAddress, Icon(Icons.email)),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
+                            userInput(firstNameController, 'First Name', TextInputType.name, const Icon(Icons.person)),
+                            const SizedBox(height: 20),
+                            userInput(lastNameController, 'Last Name', TextInputType.name,
+                                const Icon(Icons.perm_contact_cal)),
+                            const SizedBox(height: 20),
+                            userInput(emailController, 'Email', TextInputType.emailAddress, const Icon(Icons.email)),
+                            const SizedBox(height: 20),
                             userInput(
                               passwordController,
                               'Password',
                               TextInputType.visiblePassword,
-                              Icon(Icons.vpn_key_rounded),
+                              const Icon(Icons.vpn_key_rounded),
                               obscureText: true,
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   'Are You Doctor ?',
                                   style: TextStyle(fontSize: 16),
                                 ),
@@ -199,7 +193,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Container(
                               height: 55,
                               padding: const EdgeInsets.only(top: 5),
@@ -211,11 +205,15 @@ class _SignupScreenState extends State<SignupScreen> {
                                 ),
                                 onPressed: () async {
                                   showSpinner = true;
-                                  print(emailController.text);
-                                  print(passwordController.text);
+                                  if (kDebugMode) {
+                                    print(emailController.text);
+                                  }
+                                  if (kDebugMode) {
+                                    print(passwordController.text);
+                                  }
                                   try {
                                     if (isDoctor == false) {
-                                      final newUser = await auth.createUserWithEmailAndPassword(
+                                      await auth.createUserWithEmailAndPassword(
                                           email: emailController.text, password: passwordController.text);
                                       createUser(
                                           firstName: firstNameController.text,
@@ -229,7 +227,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                       rulePreference.setString('ruleId', isDoctor.toString());
                                       Navigator.of(context).pushNamed(HomeScreen.ID);
                                     } else {
-                                      final newUser = await auth.createUserWithEmailAndPassword(
+                                      await auth.createUserWithEmailAndPassword(
                                           email: emailController.text, password: passwordController.text);
                                       createUser(
                                           firstName: firstNameController.text,
@@ -247,25 +245,27 @@ class _SignupScreenState extends State<SignupScreen> {
                                     String errorE = e.toString();
                                     if (errorE ==
                                         '[firebase_auth/email-already-in-use] The email address is already in use by another account.') {
-                                      var snackBar = SnackBar(content: Text('Email already in use.'));
+                                      var snackBar = const SnackBar(content: Text('Email already in use.'));
                                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                                     } else if (errorE == '[firebase_auth/unknown] Given String is empty or null') {
-                                      var snackBar = SnackBar(content: Text('Please fill empty.'));
+                                      var snackBar = const SnackBar(content: Text('Please fill empty.'));
                                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                                     } else if (errorE ==
                                         '[firebase_auth/invalid-email] The email address is badly formatted.') {
-                                      var snackBar = SnackBar(content: Text('Please enter a correct email.'));
+                                      var snackBar = const SnackBar(content: Text('Please enter a correct email.'));
                                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                                     } else if (errorE ==
                                         '[firebase_auth/weak-password] Password should be at least 6 characters') {
                                       var snackBar =
-                                          SnackBar(content: Text('Password should be at least 6 characters.'));
+                                          const SnackBar(content: Text('Password should be at least 6 characters.'));
                                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                                     }
-                                    print(e);
+                                    if (kDebugMode) {
+                                      print(e);
+                                    }
                                   }
                                 },
-                                child: Text(
+                                child: const Text(
                                   'Register',
                                   style: TextStyle(
                                     fontSize: 20,
@@ -275,18 +275,18 @@ class _SignupScreenState extends State<SignupScreen> {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 20),
-                            Divider(thickness: 0, color: Colors.white),
+                            const SizedBox(height: 20),
+                            const Divider(thickness: 0, color: Colors.white),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                const Text(
                                   'Do you have an account ? ',
                                   style: TextStyle(color: lightTextColor, fontStyle: FontStyle.italic),
                                 ),
                                 TextButton(
                                   onPressed: () => Navigator.of(context).pushNamed(LoginScreen.ID),
-                                  child: Text(
+                                  child: const Text(
                                     'Sign In',
                                     style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
                                   ),

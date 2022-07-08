@@ -1,10 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 import 'package:icare/modul/Posts.dart';
-import 'package:icare/screens/add_relative_screen.dart';
-import 'package:icare/screens/user_profile_screen.dart';
 import 'package:intl/intl.dart';
 
 import 'home_screen.dart';

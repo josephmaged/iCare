@@ -1,7 +1,6 @@
 import 'dart:core';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/doctor/doctor_home.dart';
 import 'package:icare/modul/Posts.dart';
@@ -14,6 +13,8 @@ final _firestore = FirebaseFirestore.instance;
 
 class docPostCommentsScreen extends StatefulWidget {
   static const String ID = "DocPostCommentsScreen";
+
+  const docPostCommentsScreen({Key? key}) : super(key: key);
 
   @override
   State<docPostCommentsScreen> createState() => _docPostCommentsScreenState();

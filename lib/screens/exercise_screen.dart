@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 import 'package:icare/widget/reusbleCustomAppbar.dart';
@@ -17,7 +15,7 @@ class _exerciseScreenState extends State<exerciseScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: primaryColor,
           ),
           child: Stack(
@@ -25,7 +23,7 @@ class _exerciseScreenState extends State<exerciseScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Column(
-                  children: [
+                  children: const [
                     ReusbleCustomAppbar(),
                   ],
                 ),
@@ -33,11 +31,11 @@ class _exerciseScreenState extends State<exerciseScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   Expanded(
                     child: Container(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
                       ),
@@ -53,13 +51,13 @@ class _exerciseScreenState extends State<exerciseScreen> {
                                   Container(
                                     height: 49,
                                     width: 174,
-                                    padding: EdgeInsets.only(left: 10),
+                                    padding: const EdgeInsets.only(left: 10),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       color: secondaryColor,
                                     ),
                                     child: Row(
-                                      children: [
+                                      children: const [
                                         Hero(
                                           tag: 'exercise',
                                           child: Icon(
@@ -81,7 +79,7 @@ class _exerciseScreenState extends State<exerciseScreen> {
                               Container(
                                 height: 70,
                                 width: double.infinity,
-                                padding: EdgeInsets.only(left: 10),
+                                padding: const EdgeInsets.only(left: 10),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                     border: Border.all(color: secondaryColor,width: 3)
@@ -89,31 +87,31 @@ class _exerciseScreenState extends State<exerciseScreen> {
                                 child: Row(
                                   children: [
                                     Image.asset('assets/images/exercise/haveNiceDay.png'),
-                                    SizedBox(width: 5),
-                                    Text(
+                                    const SizedBox(width: 5),
+                                    const Text(
                                       'Have a nice day',
                                       style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     height: 100,
                                     width: 150,
                                     child: Image.asset("assets/images/exercise/1.png"),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: 100,
                                     width: 150,
                                     child: Image.asset("assets/images/exercise/2.png"),
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
@@ -124,7 +122,7 @@ class _exerciseScreenState extends State<exerciseScreen> {
                                       borderRadius: BorderRadius.circular(10),
                                       border: Border.all(color: primaryColor),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         'Yoga',
                                         style: TextStyle(
@@ -139,7 +137,7 @@ class _exerciseScreenState extends State<exerciseScreen> {
                                       borderRadius: BorderRadius.circular(10),
                                       border: Border.all(color: primaryColor),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         'Stretching',
                                         style: TextStyle(
@@ -149,23 +147,23 @@ class _exerciseScreenState extends State<exerciseScreen> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     height: 100,
                                     width: 150,
                                     child: Image.asset("assets/images/exercise/3.png"),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: 100,
                                     width: 150,
                                     child: Image.asset("assets/images/exercise/4.png"),
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
@@ -176,7 +174,7 @@ class _exerciseScreenState extends State<exerciseScreen> {
                                       borderRadius: BorderRadius.circular(10),
                                       border: Border.all(color: primaryColor),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         'Squats',
                                         style: TextStyle(
@@ -191,7 +189,7 @@ class _exerciseScreenState extends State<exerciseScreen> {
                                       borderRadius: BorderRadius.circular(10),
                                       border: Border.all(color: primaryColor),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         'Plank',
                                         style: TextStyle(
@@ -201,23 +199,23 @@ class _exerciseScreenState extends State<exerciseScreen> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     height: 100,
                                     width: 150,
                                     child: Image.asset("assets/images/exercise/5.png"),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: 100,
                                     width: 150,
                                     child: Image.asset("assets/images/exercise/6.png"),
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
@@ -228,7 +226,7 @@ class _exerciseScreenState extends State<exerciseScreen> {
                                       borderRadius: BorderRadius.circular(10),
                                       border: Border.all(color: primaryColor),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         'Push Up',
                                         style: TextStyle(
@@ -244,10 +242,10 @@ class _exerciseScreenState extends State<exerciseScreen> {
                                       border: Border.all(color: primaryColor),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.only(left: 15,right: 15),
+                                      padding: const EdgeInsets.only(left: 15,right: 15),
                                       child: Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
+                                        children: const [
                                           Expanded(
                                             child: Text(
                                               'Jumping Rope',

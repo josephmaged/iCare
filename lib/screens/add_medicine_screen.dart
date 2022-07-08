@@ -1,15 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_new
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 import 'package:add_2_calendar/add_2_calendar.dart';
 import 'package:icare/modul/Medicine.dart';
-import 'package:icare/services/DataBaseManager.dart';
 import 'package:icare/screens/medicine_schedule_screen.dart';
-import 'package:icare/screens/user_profile_screen.dart';
 import 'package:icare/widget/reusbleCustomAppbar.dart';
 import 'package:icare/services/auth_service.dart';
 
@@ -82,7 +77,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
     endDate = DateTime.now().toLocal();
   }
 
-  Medicine _medicine = Medicine();
+  final Medicine _medicine = Medicine();
 
   @override
   void initState() {
@@ -95,7 +90,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: primaryColor,
           ),
           child: Stack(
@@ -103,7 +98,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Column(
-                  children: [
+                  children: const [
                     ReusbleCustomAppbar(),
                   ],
                 ),
@@ -111,10 +106,10 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   Expanded(
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
                       ),
@@ -125,11 +120,11 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              SizedBox(height: 15),
+                              const SizedBox(height: 15),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Add new medicine',
                                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                                   ),
@@ -138,17 +133,17 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                               ),
                               TextField(
                                 decoration: InputDecoration(
-                                  border: UnderlineInputBorder(),
+                                  border: const UnderlineInputBorder(),
                                   hintText: 'Medicine Name',
                                   suffixIcon: IconButton(
                                     onPressed: medicineController.clear,
-                                    icon: Icon(Icons.clear),
+                                    icon: const Icon(Icons.clear),
                                   ),
                                 ),
-                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
+                                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
                                 controller: medicineController,
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               /*Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
@@ -194,11 +189,11 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                   ),
                                 ],
                               ),*/
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Dosage (per day)',
                                     style: TextStyle(color: darkTextColor, fontSize: 20),
                                   ),
@@ -217,7 +212,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                               decrease();
                                             });
                                           },
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.remove_circle,
                                             color: primaryColor,
                                             size: 30,
@@ -225,7 +220,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                         ),
                                         Text(
                                           '$dosage',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: 20, fontWeight: FontWeight.bold, color: lightTextColor),
                                         ),
                                         IconButton(
@@ -234,7 +229,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                               increase();
                                             });
                                           },
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.add_circle,
                                             color: primaryColor,
                                             size: 30,
@@ -245,11 +240,11 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Start',
                                     style: TextStyle(color: darkTextColor, fontSize: 20),
                                   ),
@@ -268,7 +263,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                           },
                                           child: Text(
                                             "$startDate".split(' ')[0],
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 20, fontWeight: FontWeight.bold, color: lightTextColor),
                                           ),
                                         ),
@@ -278,7 +273,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                           },
                                           child: Text(
                                             "${selectedStartTime.hour} : ${selectedStartTime.minute}",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 20, fontWeight: FontWeight.bold, color: Color(0XFF867E7E)),
                                           ),
                                         ),
@@ -286,7 +281,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                           onPressed: () {
                                             _startDate(context);
                                           },
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.arrow_drop_down_circle,
                                             color: primaryColor,
                                             size: 30,
@@ -297,11 +292,11 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'End',
                                     style: TextStyle(color: darkTextColor, fontSize: 20),
                                   ),
@@ -320,7 +315,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                           },
                                           child: Text(
                                             "$endDate".split(' ')[0],
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 20, fontWeight: FontWeight.bold, color: lightTextColor),
                                           ),
                                         ),
@@ -330,7 +325,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                           },
                                           child: Text(
                                             "${selectedEndTime.hour} : ${selectedEndTime.minute}",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 20, fontWeight: FontWeight.bold, color: Color(0XFF867E7E)),
                                           ),
                                         ),
@@ -338,7 +333,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                           onPressed: () {
                                             _endDate(context);
                                           },
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.arrow_drop_down_circle,
                                             color: primaryColor,
                                             size: 30,
@@ -349,11 +344,11 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Repeat',
                                     style: TextStyle(color: darkTextColor, fontSize: 20),
                                   ),
@@ -369,13 +364,13 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                         DropdownButtonHideUnderline(
                                           child: Center(
                                             child: DropdownButton<Frequency>(
-                                              hint: Text('Select frequency'),
+                                              hint: const Text('Select frequency'),
                                               value: selectedFrequency,
                                               elevation: 16,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: lightTextColor,
                                               ),
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 Icons.arrow_drop_down_circle,
                                                 color: primaryColor,
                                                 size: 30,
@@ -385,7 +380,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                                   value: selectedFrequency,
                                                   child: Text(
                                                     selectedFrequency.name,
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         color: lightTextColor,
                                                         fontSize: 20,
                                                         fontWeight: FontWeight.bold),
@@ -405,7 +400,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               SizedBox(
                                 height: 48,
                                 width: 274,
@@ -428,7 +423,7 @@ class _addMedicineScreenState extends State<addMedicineScreen> {
                                         MaterialPageRoute(builder: (BuildContext context) => scheduleScreen()),
                                     );
                                   },
-                                  child: Text(
+                                  child: const Text(
                                     'Add Schedule',
                                     style: TextStyle(
                                       fontSize: 20,

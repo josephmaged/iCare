@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 
@@ -15,7 +13,7 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: primaryColor,
           ),
           child: Stack(
@@ -30,7 +28,7 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                       children: [
                         IconButton(
                           onPressed: () => Navigator.pop(context),
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           color: Colors.grey,
                           iconSize: 35,
                         ),
@@ -42,19 +40,19 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   Expanded(
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
                       ),
                       child: SingleChildScrollView(
-                        padding: EdgeInsets.all(30),
+                        padding: const EdgeInsets.all(30),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "About Us",
                               style: TextStyle(
                                   fontSize: 20,
@@ -62,7 +60,7 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                   decoration: TextDecoration.underline,
                                   color: primaryColor),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Wrap(
                               children: [
                                 Container(
@@ -72,8 +70,8 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                       border: Border.all(color: secondaryColor),
                                       color: Colors.white.withOpacity(0.7)),
                                   child: Container(
-                                    padding: EdgeInsets.all(10),
-                                    child: Text(
+                                    padding: const EdgeInsets.all(10),
+                                    child: const Text(
                                       "ICARE is a website and mobile app which provide "
                                           "services to patients such as pill reminder and "
                                           "get a helpful health Consulting from doctors we "
@@ -85,8 +83,8 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 20),
-                            Text(
+                            const SizedBox(height: 20),
+                            const Text(
                               "Our services",
                               style: TextStyle(
                                   fontSize: 20,
@@ -94,19 +92,19 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                   decoration: TextDecoration.underline,
                                   color: primaryColor),
                             ),
-                            SizedBox(height: 10),
-                            Text(
+                            const SizedBox(height: 10),
+                            const Text(
                               "We provide total health care",
                               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Center(
                               child: Column(
                                 children: [
                                   Column(
                                     children: [
                                       Container(
-                                        padding: EdgeInsets.all(10),
+                                        padding: const EdgeInsets.all(10),
                                         width: double.infinity,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(20),
@@ -115,11 +113,11 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                         child: Column(
                                           children: [
                                             Image.asset('assets/images/doctor.png', height: 100),
-                                            Text(
+                                            const Text(
                                               "Qualified Doctors",
                                               style: TextStyle(fontSize: 16, color: primaryColor, fontWeight: FontWeight.bold),
                                             ),
-                                            Text(
+                                            const Text(
                                               "Get best consultations from "
                                                   "professional doctors.",
                                               style: TextStyle(fontSize: 14, color: darkTextColor, fontWeight: FontWeight.bold),
@@ -127,9 +125,9 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                           ],
                                         ),
                                       ),
-                                      SizedBox(height: 10),
+                                      const SizedBox(height: 10),
                                       Container(
-                                        padding: EdgeInsets.all(10),
+                                        padding: const EdgeInsets.all(10),
                                         width: double.infinity,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(20),
@@ -138,20 +136,20 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                         child: Column(
                                           children: [
                                             Image.asset('assets/images/blue_capsule.png', height: 100),
-                                            Text(
+                                            const Text(
                                               "Daily Reminders",
                                               style: TextStyle(fontSize: 16, color: primaryColor, fontWeight: FontWeight.bold),
                                             ),
-                                            Text(
+                                            const Text(
                                               "Pill reminder and chronic disease measurements.",
                                               style: TextStyle(fontSize: 14, color: darkTextColor, fontWeight: FontWeight.bold),
                                             ),
                                           ],
                                         ),
                                       ),
-                                      SizedBox(height: 10),
+                                      const SizedBox(height: 10),
                                       Container(
-                                        padding: EdgeInsets.all(10),
+                                        padding: const EdgeInsets.all(10),
                                         width: double.infinity,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(20),
@@ -160,11 +158,11 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                         child: Column(
                                           children: [
                                             Image.asset('assets/images/Phone.png', height: 100),
-                                            Text(
+                                            const Text(
                                               "Health Progress Report",
                                               style: TextStyle(fontSize: 16, color: primaryColor, fontWeight: FontWeight.bold),
                                             ),
-                                            Text(
+                                            const Text(
                                               "ICARE provide you a monthly report to "
                                                   "follow up your health.",
                                               style: TextStyle(fontSize: 14, color: darkTextColor, fontWeight: FontWeight.bold),
@@ -177,8 +175,8 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 20),
-                            Text(
+                            const SizedBox(height: 20),
+                            const Text(
                               "Why Choose Us",
                               style: TextStyle(
                                   fontSize: 20,
@@ -186,7 +184,7 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                   decoration: TextDecoration.underline,
                                   color: primaryColor),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Column(
                               children: [
                                 Row(
@@ -195,8 +193,8 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                       "assets/images/Online_service.png",
                                       height: 60,
                                     ),
-                                    SizedBox(width: 10),
-                                    Text(
+                                    const SizedBox(width: 10),
+                                    const Text(
                                       "A Personal and dedicated service.",
                                       style: TextStyle(
                                         fontSize: 16,
@@ -211,8 +209,8 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                       "assets/images/Man_communicates.png",
                                       height: 60,
                                     ),
-                                    SizedBox(width: 10),
-                                    Text(
+                                    const SizedBox(width: 10),
+                                    const Text(
                                       "Access to a 24 hour advice line.",
                                       style: TextStyle(
                                         fontSize: 16,
@@ -227,8 +225,8 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                       "assets/images/Woman_getting.png",
                                       height: 60,
                                     ),
-                                    SizedBox(width: 10),
-                                    Text(
+                                    const SizedBox(width: 10),
+                                    const Text(
                                       "Flexibility in your health cover.",
                                       style: TextStyle(
                                         fontSize: 16,
@@ -243,8 +241,8 @@ class _aboutUsScreenState extends State<aboutUsScreen> {
                                         "assets/images/Medicine.png",
                                         height: 60,
                                       ),
-                                    SizedBox(width: 10),
-                                    Text(
+                                    const SizedBox(width: 10),
+                                    const Text(
                                       "Health and well-being services.",
                                       style: TextStyle(
                                         fontSize: 16,

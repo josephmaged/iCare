@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
@@ -36,7 +34,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         child: Stack(
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
               ),
               child: Column(
@@ -51,7 +49,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       children: [
                         IconButton(
                           onPressed: () => Navigator.pop(context),
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           color: Colors.grey,
                           iconSize: 35,
                         ),
@@ -87,19 +85,19 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       children: [
                         TextField(
                           decoration: InputDecoration(
-                            border: UnderlineInputBorder(),
+                            border: const UnderlineInputBorder(),
                             hintText: 'Name',
-                            hintStyle: TextStyle(color: lightTextColor),
+                            hintStyle: const TextStyle(color: lightTextColor),
                             suffixIcon: IconButton(
                               onPressed: nameController.clear,
-                              icon: Icon(Icons.clear),
+                              icon: const Icon(Icons.clear),
                             ),
                           ),
-                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
                           controller: nameController,
                         ),
-                        SizedBox(height: 20),
-                        Text(
+                        const SizedBox(height: 20),
+                        const Text(
                           'Gender',
                           style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: darkTextColor),
                         ),
@@ -110,7 +108,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               height: 40,
                               width: 160,
                               child: RadioListTile(
-                                title: Text(
+                                title: const Text(
                                   'Male',
                                   style: TextStyle(color: lightTextColor, fontSize: 20, fontWeight: FontWeight.bold),
                                 ),
@@ -127,7 +125,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               height: 40,
                               width: 160,
                               child: RadioListTile(
-                                title: Text(
+                                title: const Text(
                                   'Female',
                                   style: TextStyle(color: lightTextColor, fontSize: 20, fontWeight: FontWeight.bold),
                                 ),
@@ -142,46 +140,46 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           children: [
                             Flexible(
                               child: TextField(
                                 keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     border: UnderlineInputBorder(),
                                     hintText: 'Height',
                                     hintStyle: TextStyle(color: lightTextColor)),
-                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
+                                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
                                 controller: heightController,
                               ),
                             ),
-                            SizedBox(width: 20),
+                            const SizedBox(width: 20),
                             Flexible(
                               child: TextField(
                                 keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     border: UnderlineInputBorder(),
                                     hintText: 'Weight',
                                     hintStyle: TextStyle(color: lightTextColor)),
-                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
+                                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
                                 controller: weightController,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'BirthDate',
                               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
                             ),
                             Container(
                               height: 40,
                               width: 180,
-                              padding: EdgeInsets.only(left: 10, right: 10),
+                              padding: const EdgeInsets.only(left: 10, right: 10),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10), border: Border.all(color: primaryColor)),
                               child: Row(
@@ -194,10 +192,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                     child: Text(
                                       "$birthDate".split(' ')[0],
                                       style:
-                                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: lightTextColor),
+                                          const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: lightTextColor),
                                     ),
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.arrow_drop_down_circle,
                                     color: primaryColor,
                                     size: 30,
@@ -207,29 +205,29 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 30),
-                        Text(
+                        const SizedBox(height: 30),
+                        const Text(
                           'Contact',
                           style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: primaryColor),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         TextField(
                           keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               border: UnderlineInputBorder(),
                               hintText: 'Email',
                               hintStyle: TextStyle(color: lightTextColor)),
-                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
                           controller: emailController,
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         TextField(
                           keyboardType: TextInputType.phone,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               border: UnderlineInputBorder(),
                               hintText: 'Phone',
                               hintStyle: TextStyle(color: lightTextColor)),
-                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: darkTextColor),
                           controller: phoneNumController,
                         )
                       ],

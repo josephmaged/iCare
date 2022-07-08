@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_function_declarations_over_variables
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
@@ -41,7 +39,7 @@ class _tipsScreenState extends State<tipsScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: primaryColor,
           ),
           child: Stack(
@@ -49,7 +47,7 @@ class _tipsScreenState extends State<tipsScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Column(
-                  children: [
+                  children: const [
                     ReusbleCustomAppbar(),
                   ],
                 ),
@@ -57,10 +55,10 @@ class _tipsScreenState extends State<tipsScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   Expanded(
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
                       ),
@@ -70,7 +68,7 @@ class _tipsScreenState extends State<tipsScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: 15),
+                              const SizedBox(height: 15),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
@@ -87,10 +85,10 @@ class _tipsScreenState extends State<tipsScreen> {
                                               _gainIsPressed = false;
                                             });
                                       },
-                                      child: Text('Lose', style: TextStyle(color: Colors.black)),
+                                      child: const Text('Lose', style: TextStyle(color: Colors.black)),
                                     ),
                                   ),
-                                  SizedBox(width: 15),
+                                  const SizedBox(width: 15),
                                   Expanded(
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
@@ -104,13 +102,13 @@ class _tipsScreenState extends State<tipsScreen> {
                                            _gainIsPressed = false;
                                          });
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         'Maintain',
                                         style: TextStyle(color: Colors.black),
                                       ),
                                     ),
                                   ),
-                                  SizedBox(width: 15),
+                                  const SizedBox(width: 15),
                                   Expanded(
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
@@ -124,22 +122,22 @@ class _tipsScreenState extends State<tipsScreen> {
                                             _gainIsPressed = true;
                                         });
                                       },
-                                      child: Text('Gain', style: TextStyle(color: Colors.black)),
+                                      child: const Text('Gain', style: TextStyle(color: Colors.black)),
                                     ),
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 25),
+                              const SizedBox(height: 25),
                               SizedBox(
                                 height: screenHeight - 240,
                                 width: double.infinity,
                                 child: PageView(
                                   controller: controller,
-                                  physics: NeverScrollableScrollPhysics(),
+                                  physics: const NeverScrollableScrollPhysics(),
                                   children: [
                                     loseScreen(),
-                                    maintainScreen(),
-                                    gainScreen(),
+                                    const maintainScreen(),
+                                    const gainScreen(),
                                   ],
                                 ),
                               ),

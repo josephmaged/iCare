@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/modul/Reports.dart';
 import 'package:icare/screens/report_screen.dart';
-import 'package:intl/intl.dart';
 
 import '../const/const.dart';
 import '../services/auth_service.dart';
@@ -282,7 +282,9 @@ class _addMeasurementsState extends State<addMeasurements> {
                                         Navigator.of(context).pushReplacementNamed(reportScreen.ID);
                                         ScaffoldMessenger.of(context).showSnackBar(measurementMessage);
                                       } catch (e) {
-                                        print(e);
+                                        if (kDebugMode) {
+                                          print(e);
+                                        }
                                       }
                                     },
                                     child: const Text(

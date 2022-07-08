@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors, avoid_types_as_parameter_names, non_constant_identifier_names, avoid_print
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 import 'package:icare/doctor/chat/chat_with_patient.dart';
@@ -50,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         hintText: hintTitle,
         hintStyle:
-            TextStyle(fontSize: 18, color: lightTextColor, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+            const TextStyle(fontSize: 18, color: lightTextColor, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
       ),
       keyboardType: keyboardType,
     );
@@ -62,7 +61,9 @@ class _LoginScreenState extends State<LoginScreen> {
   fetchDatabaseList() async {
     dynamic resultdata = await DataBaseManager().getUserData(email: emailController.text);
     if (resultdata == null) {
-      print("enable to get ");
+      if (kDebugMode) {
+        print("enable to get ");
+      }
     } else {
       setState(() {
         userList = resultdata;
@@ -80,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Stack(
             children: [
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     image: DecorationImage(image: AssetImage('assets/images/background.png'), fit: BoxFit.cover)),
                 child: Column(
                   children: [
@@ -90,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         IconButton(
                           onPressed: () => Navigator.of(context).pushReplacementNamed(welcomeScreen.ID),
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           color: Colors.grey,
                           iconSize: 35,
                         ),
@@ -105,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: SingleChildScrollView(
                   child: Container(
                     margin: const EdgeInsets.only(top: 300),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25),
@@ -120,24 +121,24 @@ class _LoginScreenState extends State<LoginScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              SizedBox(height: 10),
-                              Center(
+                              const SizedBox(height: 10),
+                              const Center(
                                 child: Text(
                                   'Sign In',
                                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: primaryColor),
                                 ),
                               ),
-                              SizedBox(height: 20),
-                              userInput(emailController, 'Email', TextInputType.emailAddress, Icon(Icons.email)),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
+                              userInput(emailController, 'Email', TextInputType.emailAddress, const Icon(Icons.email)),
+                              const SizedBox(height: 20),
                               userInput(
                                 passwordController,
                                 'Password',
                                 TextInputType.visiblePassword,
-                                Icon(Icons.vpn_key_rounded),
+                                const Icon(Icons.vpn_key_rounded),
                                 obscureText: true,
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Container(
                                 height: 55,
                                 padding: const EdgeInsets.only(top: 5),
@@ -164,26 +165,34 @@ class _LoginScreenState extends State<LoginScreen> {
                                         rulePreference.setString('ruleId', ruleID!);
                                         Navigator.of(context).pushNamed(doctorHomeScreen.ID);
                                       }
-                                      print(ruleID);
+                                      if (kDebugMode) {
+                                        print(ruleID);
+                                      }
                                       showSpinner = false;
                                     } catch (e) {
                                       String errorE = e.toString();
                                       if (errorE == '[firebase_auth/unknown] Given String is empty or null') {
-                                        var snackBar = SnackBar(content: Text('Please fill empty.'));
+                                        var snackBar = const SnackBar(content: Text('Please fill empty.'));
                                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                                       } else if (errorE ==
                                           '[firebase_auth/invalid-email] The email address is badly formatted.') {
-                                        var snackBar = SnackBar(content: Text('Please enter a correct email.'));
+                                        var snackBar = const SnackBar(content: Text('Please enter a correct email.'));
                                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                                       } else if (errorE ==
                                           '[firebase_auth/user-not-found] There is no user record corresponding to this identifier. The user may have been deleted.') {
-                                        var snackBar = SnackBar(content: Text('Email not found.'));
+                                        var snackBar = const SnackBar(content: Text('Email not found.'));
+                                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                      }else if (errorE ==
+                                          '[firebase_auth/wrong-password] The password is invalid or the user does not have a password.') {
+                                        var snackBar = const SnackBar(content: Text('Password is invalid.'));
                                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                                       }
-                                      print(e);
+                                      if (kDebugMode) {
+                                        print(e);
+                                      }
                                     }
                                   },
-                                  child: Text(
+                                  child: const Text(
                                     'Log In',
                                     style: TextStyle(
                                       fontSize: 20,
@@ -193,25 +202,25 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 20),
-                              Center(
+                              const SizedBox(height: 20),
+                              const Center(
                                 child: Text(
                                   'Forgot password ?',
                                   style: TextStyle(color: darkTextColor),
                                 ),
                               ),
-                              SizedBox(height: 20),
-                              Divider(thickness: 0, color: Colors.white),
+                              const SizedBox(height: 20),
+                              const Divider(thickness: 0, color: Colors.white),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Don\'t have an account yet ? ',
                                     style: TextStyle(color: lightTextColor, fontStyle: FontStyle.italic),
                                   ),
                                   TextButton(
                                     onPressed: () => Navigator.of(context).pushNamed(SignupScreen.ID),
-                                    child: Text(
+                                    child: const Text(
                                       'Sign Up',
                                       style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
                                     ),

@@ -1,6 +1,6 @@
 import 'package:animated_horizontal_calendar/animated_horizontal_calendar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:icare/modul/Appointment.dart';
@@ -8,7 +8,6 @@ import 'package:icare/modul/Relatives.dart';
 import 'package:icare/modul/Reports.dart';
 import 'package:icare/screens/add_measurements.dart';
 import 'package:icare/widget/reusbleReport.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../const/const.dart';
 import '../modul/Reports.dart';
@@ -132,8 +131,12 @@ class _reportScreenState extends State<reportScreen> {
                                       for (Relatives relative in _relativeList) {
                                         emails.add(relative.relativeEmail!);
                                       }
-                                      print(emails.length);
-                                      print(_relativeList.length);
+                                      if (kDebugMode) {
+                                        print(emails.length);
+                                      }
+                                      if (kDebugMode) {
+                                        print(_relativeList.length);
+                                      }
                                       final Email email = Email(
                                         body:
                                         ("Report for day $selectedDate is : \nGlucose: ${_reportList[0]

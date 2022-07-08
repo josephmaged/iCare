@@ -2,12 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:icare/doctor/post/doc_post_comments_screen.dart';
 import 'package:icare/modul/Posts.dart';
-import 'package:icare/screens/post_comments_screen.dart';
 
 
 class DocReusblePost extends StatelessWidget {
   final Posts _posts;
-  DocReusblePost(this._posts);
+  const DocReusblePost(this._posts, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class DocReusblePost extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => docPostCommentsScreen(),
+              builder: (context) => const docPostCommentsScreen(),
               settings: RouteSettings(arguments: _posts)
           ),
         ),

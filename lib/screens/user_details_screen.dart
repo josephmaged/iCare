@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 import 'package:icare/screens/add_relative_screen.dart';

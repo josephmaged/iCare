@@ -1,7 +1,6 @@
-// ignore_for_file: avoid_print
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:icare/modul/Medicine.dart';
 
 import 'auth_service.dart';
@@ -31,7 +30,9 @@ class DataBaseManager {
       });
       return userList;
     } catch (e) {
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
     }
   }
 

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -36,7 +34,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: primaryColor,
           ),
           child: Stack(
@@ -44,7 +42,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Column(
-                  children: [
+                  children: const [
                     ReusbleCustomAppbar(),
                   ],
                 ),
@@ -52,10 +50,10 @@ class _scheduleScreenState extends State<scheduleScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   Expanded(
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
                       ),
@@ -63,20 +61,20 @@ class _scheduleScreenState extends State<scheduleScreen> {
                         padding: const EdgeInsets.all(20),
                         child: Column(
                           children: [
-                            SizedBox(height: 15),
+                            const SizedBox(height: 15),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
                                   height: 49,
                                   width: 174,
-                                  padding: EdgeInsets.only(left: 10),
+                                  padding: const EdgeInsets.only(left: 10),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: secondaryColor,
                                   ),
                                   child: Row(
-                                    children: [
+                                    children: const [
                                       Icon(
                                         Icons.schedule,
                                         color: primaryColor,
@@ -92,7 +90,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
                                 Image.asset('assets/images/scheduleTablets.png', scale: 1.5)
                               ],
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Expanded(
                               child: _medicineList.isEmpty
                                   ? Image.asset(
@@ -106,7 +104,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
                                         return reusbleMedicine(_medicineList[index] as Medicine);
                                       }),
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
@@ -124,7 +122,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
                                         MaterialPageRoute(builder: (BuildContext context) => addMedicineScreen()),
                                       );
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       'Add new medicine',
                                       style: TextStyle(
                                         fontSize: 20,

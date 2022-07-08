@@ -1,5 +1,3 @@
-// ignore_for_file: use_key_in_widget_constructors, camel_case_types, prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -45,37 +43,37 @@ class _chatWithPatientScreenState extends State<chatWithPatientScreen> {
                     children: [
                       IconButton(
                           onPressed: () => Navigator.pop(context),
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           color: Colors.grey,
                           iconSize: 35,
                       ),
-                      Text(
+                      const Text(
                         'Chats',
                         style: TextStyle(color: primaryColor, fontSize: 35, fontWeight: FontWeight.bold),
                       ),
-                      IconButton(
+                      const IconButton(
                         onPressed: null,
-                        icon: Icon(Icons.segment),
+                        icon: const Icon(Icons.segment),
                         color: Colors.grey,
                         iconSize: 35,
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Padding(
-                    padding: EdgeInsets.only(left: 15, right: 15),
+                    padding: const EdgeInsets.only(left: 15, right: 15),
                     child: TextField(
-                      style: TextStyle(fontSize: 16, height: 0.5),
+                      style: const TextStyle(fontSize: 16, height: 0.5),
                       decoration: InputDecoration(
                         hintText: "Search",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50),
                         ),
-                        prefixIcon: Icon(Icons.search),
+                        prefixIcon: const Icon(Icons.search),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Expanded(
                     child: ListView.builder(
                         itemCount: _userList.length,

@@ -162,7 +162,7 @@ class _postCommentsScreenState extends State<postCommentsScreen> {
 
 class CommentsStream extends StatelessWidget {
   String getPost;
-  CommentsStream({required this.getPost});
+  CommentsStream({Key? key, required this.getPost}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -197,7 +197,7 @@ class CommentsStream extends StatelessWidget {
         return Expanded(
           child: ListView(
             reverse: true,
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             children: commentBubbles,
           ),
         );

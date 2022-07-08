@@ -1,5 +1,3 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
@@ -14,14 +12,12 @@ import '../services/auth_service.dart';
 class appointmentScreen extends StatefulWidget {
   static const String ID = "AppointmentsScreen";
 
-
   @override
   _appointmentScreenState createState() => _appointmentScreenState();
 }
 
 class _appointmentScreenState extends State<appointmentScreen> {
   List<Object> _appointmentList = [];
-
 
   @override
   void didChangeDependencies() {
@@ -31,12 +27,12 @@ class _appointmentScreenState extends State<appointmentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width -100;
+    double screenWidth = MediaQuery.of(context).size.width - 100;
 
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: primaryColor,
           ),
           child: Stack(
@@ -44,7 +40,7 @@ class _appointmentScreenState extends State<appointmentScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Column(
-                  children: [
+                  children: const [
                     ReusbleCustomAppbar(),
                   ],
                 ),
@@ -52,11 +48,11 @@ class _appointmentScreenState extends State<appointmentScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   Expanded(
                     child: Container(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
                       ),
@@ -65,10 +61,10 @@ class _appointmentScreenState extends State<appointmentScreen> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            SizedBox(height: 15),
+                            const SizedBox(height: 15),
                             Row(
                               children: [
-                                Hero(
+                                const Hero(
                                   tag: 'appointments',
                                   child: Icon(
                                     Icons.check_circle,
@@ -76,31 +72,31 @@ class _appointmentScreenState extends State<appointmentScreen> {
                                     size: 50,
                                   ),
                                 ),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 SizedBox(
                                   width: screenWidth,
-                                  child: Text(
+                                  child: const Text(
                                     'Check up your upcoming appointments.',
-                                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: primaryColor),
+                                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: primaryColor),
                                   ),
                                 ),
                               ],
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Expanded(
                               child: _appointmentList.isEmpty
                                   ? Image.asset(
-                                'assets/images/no_data.png',
-                                width: 200,
-                              )
+                                      'assets/images/no_data.png',
+                                      width: 200,
+                                    )
                                   : ListView.builder(
-                                  itemCount: _appointmentList.length,
-                                  itemBuilder: (context, index) {
-                                    getUserAppointmentList();
-                                    return reusbleAppointment(_appointmentList[index] as Appointment);
-                                  }),
+                                      itemCount: _appointmentList.length,
+                                      itemBuilder: (context, index) {
+                                        getUserAppointmentList();
+                                        return reusbleAppointment(_appointmentList[index] as Appointment);
+                                      }),
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
@@ -118,7 +114,7 @@ class _appointmentScreenState extends State<appointmentScreen> {
                                         MaterialPageRoute(builder: (BuildContext context) => addAppointmentsScreen()),
                                       );
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       'Add new Appointment',
                                       style: TextStyle(
                                         fontSize: 20,

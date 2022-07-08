@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/modul/Appointment.dart';
 import 'package:icare/screens/appointments_screen.dart';
@@ -236,7 +236,9 @@ class _addAppointmentsScreenState extends State<addAppointmentsScreen> {
                                         appointmentTime: selectedTime.format(context),
                                       );
                                     } catch (e) {
-                                      print(e);
+                                      if (kDebugMode) {
+                                        print(e);
+                                      }
                                     }
                                     Navigator.pushReplacement(
                                       context,

@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/modul/Posts.dart';
 import 'package:icare/screens/home_screen.dart';
-import 'package:icare/screens/post_comments_screen.dart';
 import 'package:icare/screens/user_profile_screen.dart';
 import 'package:intl/intl.dart';
 
@@ -57,7 +55,7 @@ class _PostsScreenState extends State<PostsScreen> {
                       children: [
                         IconButton(
                           onPressed: () => Navigator.pop(context),
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           color: Colors.grey,
                           iconSize: 35,
                         ),

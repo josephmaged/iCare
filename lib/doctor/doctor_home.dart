@@ -1,7 +1,6 @@
-// ignore_for_file: camel_case_types, prefer_typing_uninitialized_variables
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/doctor/chat/chat_with_patient.dart';
 import 'package:icare/doctor/doctor_profile.dart';
@@ -16,10 +15,11 @@ import '../screens/login_screen.dart';
 import '../services/DataBaseManager.dart';
 import '../widget/reusblePost.dart';
 
-final _firestore = FirebaseFirestore.instance;
 
 class doctorHomeScreen extends StatefulWidget {
   static const String ID = "DoctorHomeScreen";
+
+  const doctorHomeScreen({Key? key}) : super(key: key);
 
   @override
   _doctorHomeScreenState createState() => _doctorHomeScreenState();
@@ -86,7 +86,9 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
   fetchDatabaseList() async {
     dynamic resultdata = await DataBaseManager().getUserData(email: loggedInDoctorEmail);
     if (resultdata == null) {
-      print("enable to get ");
+      if (kDebugMode) {
+        print("enable to get ");
+      }
     } else {
       setState(() {
         userList = resultdata;
@@ -124,7 +126,7 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                     colorFilter: ColorFilter.mode(Colors.lightBlueAccent.withOpacity(0.5), BlendMode.dstATop),
-                    image: AssetImage("assets/images/drawerBackground.jpg"),
+                    image: const AssetImage("assets/images/drawerBackground.jpg"),
                     fit: BoxFit.fitWidth,
                   )),
                   child: Image.asset(
@@ -141,8 +143,8 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
                   },
                 ),
                 ListTile(
-                  leading: Icon(Icons.logout),
-                  title: Text('LogOut'),
+                  leading: const Icon(Icons.logout),
+                  title: const Text('LogOut'),
                   onTap: () async {
                     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
                     sharedPreferences.remove('email');
@@ -167,7 +169,7 @@ class _doctorHomeScreenState extends State<doctorHomeScreen> {
                     children: [
                       IconButton(
                         onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-                        icon: Icon(Icons.menu),
+                        icon: const Icon(Icons.menu),
                         color: Colors.grey,
                         iconSize: 35,
                       ),

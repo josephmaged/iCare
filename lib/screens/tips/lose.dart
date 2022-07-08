@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 
@@ -57,34 +55,34 @@ class _loseScreenState extends State<loseScreen> {
                 borderRadius: BorderRadius.circular(24.0),
                 color: primaryColor,
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Drinks',
                   style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               height: 500,
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                 ),
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: drinkTipsName.length,
                 itemBuilder: (BuildContext context, int index){
                   return Column(
                     children: [
-                      Container(
+                      SizedBox(
                         height: 100,
                         width: 150,
                         child: Image.asset(drinkTipsImg[index]),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         width: 150,
                         height: 36,
@@ -93,14 +91,14 @@ class _loseScreenState extends State<loseScreen> {
                           border: Border.all(color: primaryColor),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.only(left: 15, right: 15),
+                          padding: const EdgeInsets.only(left: 15, right: 15),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Expanded(
                                 child: Text(
                                   drinkTipsName[index],
-                                  style: TextStyle(color: tipsTestColor, fontWeight: FontWeight.bold),
+                                  style: const TextStyle(color: tipsTestColor, fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ],
@@ -112,7 +110,7 @@ class _loseScreenState extends State<loseScreen> {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               width: 100,
               height: 40,
@@ -120,34 +118,34 @@ class _loseScreenState extends State<loseScreen> {
                 borderRadius: BorderRadius.circular(24.0),
                 color: primaryColor,
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Foods',
                   style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               height: 500,
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                 ),
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: foodTipsName.length,
                 itemBuilder: (BuildContext context, int index){
                   return Column(
                     children: [
-                      Container(
+                      SizedBox(
                         height: 100,
                         width: 150,
                         child: Image.asset(foodTipsImg[index]),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         width: 150,
                         height: 36,
@@ -156,14 +154,14 @@ class _loseScreenState extends State<loseScreen> {
                           border: Border.all(color: primaryColor),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.only(left: 15, right: 15),
+                          padding: const EdgeInsets.only(left: 15, right: 15),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Expanded(
                                 child: Text(
                                   foodTipsName[index],
-                                  style: TextStyle(color: tipsTestColor, fontWeight: FontWeight.bold),
+                                  style: const TextStyle(color: tipsTestColor, fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ],

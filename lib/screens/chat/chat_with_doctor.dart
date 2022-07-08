@@ -1,5 +1,3 @@
-// ignore_for_file: use_key_in_widget_constructors, camel_case_types, prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firestore_search/firestore_search.dart';
 import 'package:flutter/cupertino.dart';
@@ -41,15 +39,15 @@ class _chatWithDoctorScreenState extends State<chatWithDoctorScreen> {
                     children: [
                       IconButton(
                         onPressed: () => Navigator.pop(context),
-                        icon: Icon(Icons.arrow_back),
+                        icon: const Icon(Icons.arrow_back),
                         color: Colors.grey,
                         iconSize: 35,
                       ),
-                      Text(
+                      const Text(
                         'Chats',
                         style: TextStyle(color: primaryColor, fontSize: 35, fontWeight: FontWeight.bold),
                       ),
-                      IconButton(
+                      const IconButton(
                         onPressed: null,
                         icon: Icon(Icons.segment),
                         color: Colors.grey,
@@ -57,7 +55,7 @@ class _chatWithDoctorScreenState extends State<chatWithDoctorScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.only(left: 15,right: 15),
                     child: FirestoreSearchBar(
@@ -65,7 +63,7 @@ class _chatWithDoctorScreenState extends State<chatWithDoctorScreen> {
                       clearSearchButtonColor: Colors.grey,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Expanded(
                     child: FirestoreSearchResults.builder(
                       tag: 'ChatSearsh',

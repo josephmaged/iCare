@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_field, prefer_final_fields, unnecessary_new, prefer_typing_uninitialized_variables
-
 import 'dart:ui';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firestore_search/firestore_search.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 import 'package:icare/screens/report_screen.dart';
@@ -32,28 +31,28 @@ var loggedInUser;
 var loggedInUserEmail;
 List userList = [];
 
-DateFormat format = new DateFormat("MMMM dd, yy");
+DateFormat format = DateFormat("MMMM dd, yy");
 var dateString = format.format(DateTime.now());
-DateFormat dayFormat = new DateFormat("EEEE");
+DateFormat dayFormat = DateFormat("EEEE");
 var dayString = dayFormat.format(DateTime.now());
 
 class _HomeScreenState extends State<HomeScreen> {
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   Future<bool> _onWillPop() async {
     return (await showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: new Text('Are you sure?'),
-            content: new Text('Do you want to exit an App'),
+            title: const Text('Are you sure?'),
+            content: const Text('Do you want to exit an App'),
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false), //<-- SEE HERE
-                child: new Text('No'),
+                child: const Text('No'),
               ),
               TextButton(
                 onPressed: () => Navigator.of(context).pop(true), // <-- SEE HERE
-                child: new Text('Yes'),
+                child: const Text('Yes'),
               ),
             ],
           ),
@@ -76,14 +75,18 @@ class _HomeScreenState extends State<HomeScreen> {
         loggedInUserEmail = user.email;
       }
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 
   fetchDatabaseList() async {
     dynamic resultdata = await DataBaseManager().getUserData(email: loggedInUserEmail);
     if (resultdata == null) {
-      print("enable to get ");
+      if (kDebugMode) {
+        print("enable to get ");
+      }
     } else {
       setState(() {
         userList = resultdata;
@@ -109,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                     colorFilter: ColorFilter.mode(Colors.lightBlueAccent.withOpacity(0.5), BlendMode.dstATop),
-                    image: AssetImage("assets/images/drawerBackground.jpg"),
+                    image: const AssetImage("assets/images/drawerBackground.jpg"),
                     fit: BoxFit.fitWidth,
                   )),
                   child: Image.asset(
@@ -119,8 +122,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 ListTile(
-                  leading: Icon(Icons.logout),
-                  title: Text('LogOut'),
+                  leading: const Icon(Icons.logout),
+                  title: const Text('LogOut'),
                   onTap: () async {
                     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
                     sharedPreferences.remove('email');
@@ -147,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           IconButton(
                             onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-                            icon: Icon(Icons.menu),
+                            icon: const Icon(Icons.menu),
                             color: Colors.grey,
                             iconSize: 35,
                           ),
@@ -155,11 +158,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Text(
                                 dayString + "  " + dateString,
-                                style: TextStyle(color: primaryColor, fontSize: 18),
+                                style: const TextStyle(color: primaryColor, fontSize: 18),
                               ),
                               Text(
                                 "Hi, " + (userList.isNotEmpty ? toBeginningOfSentenceCase(userList[3])! : ''),
-                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
@@ -180,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Padding(
                         padding: const EdgeInsets.only(left: 15, right: 15),
                         child: FirestoreSearchBar(
@@ -188,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           clearSearchButtonColor: Colors.grey,
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -198,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     tag: 'HomeSearsh',
                     firestoreCollectionName: 'Users',
                     searchBy: 'First Name',
-                    initialBody: HomeBody(),
+                    initialBody: const HomeBody(),
                     dataListFromSnapshot: Users().dataListFromSnapshot,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
@@ -234,14 +237,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.all(8),
                                         child: Text(
                                           'Dr.${toBeginningOfSentenceCase(data.firstName)}',
-                                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(bottom: 8, left: 8, right: 8),
                                         child: Text(
                                           '${data.docMajor}',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 18
                                           ),
                                         ),
@@ -288,7 +291,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   break;
               }
             },
-            items: [
+            items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.message),
                 label: 'Messages',

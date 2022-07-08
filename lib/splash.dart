@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
-import 'package:icare/doctor/chat/chat_with_patient.dart';
 import 'package:icare/doctor/doctor_home.dart';
 import 'package:icare/screens/home_screen.dart';
-import 'package:icare/screens/login_screen.dart';
 import 'package:icare/screens/welcome.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

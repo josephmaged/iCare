@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:icare/screens/about_us_screen.dart';
 import 'package:icare/screens/login_screen.dart';
@@ -15,7 +13,7 @@ class welcomeScreen extends StatefulWidget {
 }
 
 class _welcomeState extends State<welcomeScreen> {
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,7 @@ class _welcomeState extends State<welcomeScreen> {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                   colorFilter: ColorFilter.mode(secondaryColor.withOpacity(0.5), BlendMode.dstATop),
-                  image: AssetImage("assets/images/drawerBackground.jpg"),
+                  image: const AssetImage("assets/images/drawerBackground.jpg"),
                   fit: BoxFit.fitWidth,
                 )),
                 child: Image.asset(
@@ -40,18 +38,18 @@ class _welcomeState extends State<welcomeScreen> {
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.login),
-                title: Text('Login'),
+                leading: const Icon(Icons.login),
+                title: const Text('Login'),
                 onTap: () => Navigator.of(context).pushNamed(LoginScreen.ID),
               ),
               ListTile(
-                leading: Icon(Icons.app_registration),
-                title: Text('Register'),
+                leading: const Icon(Icons.app_registration),
+                title: const Text('Register'),
                 onTap: () => Navigator.of(context).pushNamed(SignupScreen.ID),
               ),
               ListTile(
-                leading: Icon(Icons.support_agent),
-                title: Text('Contact Us'),
+                leading: const Icon(Icons.support_agent),
+                title: const Text('Contact Us'),
                 onTap: () => Navigator.of(context).pushNamed(aboutUsScreen.ID),
               ),
             ],
@@ -60,113 +58,111 @@ class _welcomeState extends State<welcomeScreen> {
         body: Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/images/background.png"),
               fit: BoxFit.cover,
             ),
           ),
-          child: Container(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30, left: 10),
-                    child: IconButton(
-                      onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-                      icon: Icon(Icons.menu),
-                      color: Colors.white,
-                      iconSize: 35,
-                    ),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 30, left: 10),
+                  child: IconButton(
+                    onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+                    icon: const Icon(Icons.menu),
+                    color: Colors.white,
+                    iconSize: 35,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 50),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              "WELCOME TO",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Image.asset(
-                              "assets/images/mainLogo.png",
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 50),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          const Text(
+                            "WELCOME TO",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                               color: Colors.white,
-                              height: 50,
                             ),
-                          ],
-                        ),
-                        Expanded(
-                          child: Image.asset(
-                            'assets/images/backgroundDoctor.png',
-                            width: 120,
                           ),
-                        )
-                      ],
-                    ),
+                          Image.asset(
+                            "assets/images/mainLogo.png",
+                            color: Colors.white,
+                            height: 50,
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: Image.asset(
+                          'assets/images/backgroundDoctor.png',
+                          width: 120,
+                        ),
+                      )
+                    ],
                   ),
-                  SizedBox(height: 50),
-                  Center(
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 48,
-                          width: 274,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25),
-                                  side: BorderSide(width: 1, color: Colors.black)),
-                              primary: primaryColor.withOpacity(0.05),
-                              onPrimary: secondaryColor.withOpacity(0),
+                ),
+                const SizedBox(height: 50),
+                Center(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 48,
+                        width: 274,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                                side: const BorderSide(width: 1, color: Colors.black)),
+                            primary: primaryColor.withOpacity(0.05),
+                            onPrimary: secondaryColor.withOpacity(0),
+                            shadowColor: Colors.black.withOpacity(0.1)
+                          ),
+                          onPressed: () => Navigator.of(context).pushNamed(LoginScreen.ID),
+                          child: const Text(
+                            'Sign in',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        height: 48,
+                        width: 274,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                                side: const BorderSide(width: 1, color: Colors.black)),
+                            primary: primaryColor.withOpacity(0.05),
+                            onPrimary: secondaryColor.withOpacity(0),
                               shadowColor: Colors.black.withOpacity(0.1)
-                            ),
-                            onPressed: () => Navigator.of(context).pushNamed(LoginScreen.ID),
-                            child: Text(
-                              'Sign in',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.black,
-                              ),
+                          ),
+                          onPressed: () => Navigator.of(context).pushNamed(SignupScreen.ID),
+                          child: const Text(
+                            'Sign up',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black,
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
-                        SizedBox(
-                          height: 48,
-                          width: 274,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25),
-                                  side: BorderSide(width: 1, color: Colors.black)),
-                              primary: primaryColor.withOpacity(0.05),
-                              onPrimary: secondaryColor.withOpacity(0),
-                                shadowColor: Colors.black.withOpacity(0.1)
-                            ),
-                            onPressed: () => Navigator.of(context).pushNamed(SignupScreen.ID),
-                            child: Text(
-                              'Sign up',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

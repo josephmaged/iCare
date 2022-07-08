@@ -1,5 +1,3 @@
-// ignore_for_file: camel_case_types, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors, prefer_typing_uninitialized_variables
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -47,7 +45,7 @@ class _doctorchatScreenState extends State<doctorChatScreen> {
                 children: [
                   IconButton(
                     onPressed: () => Navigator.pop(context),
-                    icon: Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back),
                     color: Colors.grey,
                     iconSize: 35,
                   ),
@@ -87,7 +85,7 @@ class _doctorchatScreenState extends State<doctorChatScreen> {
                         }
                       });
                     },
-                    icon: Icon(Icons.send, size: 30),
+                    icon: const Icon(Icons.send, size: 30),
                   ),
                 ],
               ),
@@ -100,6 +98,8 @@ class _doctorchatScreenState extends State<doctorChatScreen> {
 }
 
 class MessageStream extends StatelessWidget {
+  const MessageStream({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -109,7 +109,7 @@ class MessageStream extends StatelessWidget {
           .where("sender", whereIn: ["$loggedInDoctorEmail", "$doctorArg"]).snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(
               backgroundColor: Colors.lightBlueAccent,
             ),
@@ -141,7 +141,7 @@ class MessageStream extends StatelessWidget {
         return Expanded(
           child: ListView(
             reverse: true,
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             children: messageBubbles,
           ),
         );
@@ -151,8 +151,8 @@ class MessageStream extends StatelessWidget {
 }
 
 class MessageBubble extends StatelessWidget {
-  MessageBubble(
-      {required this.sender, required this.text, required this.isMe, required this.time, required this.receiver});
+  const MessageBubble(
+      {Key? key, required this.sender, required this.text, required this.isMe, required this.time, required this.receiver}) : super(key: key);
 
   final String sender;
   final String receiver;
@@ -169,17 +169,17 @@ class MessageBubble extends StatelessWidget {
         children: [
           Text(
             sender,
-            style: TextStyle(fontSize: 12, color: Colors.black54),
+            style: const TextStyle(fontSize: 12, color: Colors.black54),
           ),
           Material(
             elevation: 5,
             borderRadius: isMe
-                ? BorderRadius.only(
+                ? const BorderRadius.only(
                     topLeft: Radius.circular(30),
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30),
                   )
-                : BorderRadius.only(
+                : const BorderRadius.only(
                     topRight: Radius.circular(30),
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30),
@@ -188,9 +188,9 @@ class MessageBubble extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Text(
-                '$text',
+                text,
                 style:
-                    isMe ? TextStyle(fontSize: 16, color: Colors.black) : TextStyle(fontSize: 16, color: Colors.black),
+                    isMe ? const TextStyle(fontSize: 16, color: Colors.black) : const TextStyle(fontSize: 16, color: Colors.black),
               ),
             ),
           ),
@@ -202,7 +202,7 @@ class MessageBubble extends StatelessWidget {
                 time.toDate().hour.toString() +
                 ":" +
                 time.toDate().minute.toString(),
-            style: TextStyle(fontSize: 12, color: Colors.black54),
+            style: const TextStyle(fontSize: 12, color: Colors.black54),
           )
         ],
       ),

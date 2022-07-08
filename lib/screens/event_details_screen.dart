@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:icare/const/const.dart';
 
@@ -26,7 +24,7 @@ class _eventDetailsScreenState extends State<eventDetailsScreen> {
                   children: [
                     IconButton(
                       onPressed: () => Navigator.pop(context),
-                      icon: Icon(Icons.arrow_back),
+                      icon: const Icon(Icons.arrow_back),
                       color: Colors.grey,
                       iconSize: 35,
                     ),
@@ -40,7 +38,7 @@ class _eventDetailsScreenState extends State<eventDetailsScreen> {
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           'Pill Name',
                           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -63,29 +61,29 @@ class _eventDetailsScreenState extends State<eventDetailsScreen> {
                     )
                   ],
                 ),
-                Text(
+                const Text(
                   'Dose',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                Text(
+                const Text(
                   'test',
                   style: TextStyle(fontSize: 18, color: Colors.grey),
                 ),
-                SizedBox(height: 30),
-                Text(
+                const SizedBox(height: 30),
+                const Text(
                   'Time',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                Text(
+                const Text(
                   'test',
                   style: TextStyle(fontSize: 18, color: Colors.grey),
                 ),
-                SizedBox(height: 30),
-                Text(
+                const SizedBox(height: 30),
+                const Text(
                   'Program',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                Text(
+                const Text(
                   'test',
                   style: TextStyle(fontSize: 18, color: Colors.grey),
                 ),
@@ -99,7 +97,7 @@ class _eventDetailsScreenState extends State<eventDetailsScreen> {
                         primary: secondaryColor,
                       ),
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'Change Schedule',
                         style: TextStyle(
                           fontSize: 20,

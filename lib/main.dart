@@ -5,7 +5,6 @@ import 'package:icare/doctor/chat/doctor_chat_screen.dart';
 import 'package:icare/doctor/doctor_home.dart';
 import 'package:icare/doctor/doctor_profile.dart';
 import 'package:icare/doctor/post/doc_post_comments_screen.dart';
-import 'package:icare/modul/Posts.dart';
 import 'package:icare/screens/about_us_screen.dart';
 import 'package:icare/screens/add_appointments_screen.dart';
 import 'package:icare/screens/add_measurements.dart';
@@ -14,7 +13,6 @@ import 'package:icare/screens/appointments_screen.dart';
 import 'package:icare/screens/calories_screen.dart';
 import 'package:icare/screens/chat/chat_with_doctor.dart';
 import 'package:icare/screens/chat/chat_screen.dart';
-import 'package:icare/screens/display_doctor_screen.dart';
 import 'package:icare/screens/event_details_screen.dart';
 import 'package:icare/screens/exercise_screen.dart';
 import 'package:icare/screens/home_screen.dart';
@@ -67,18 +65,18 @@ class _MyAppState extends State<MyApp> {
         tipsScreen.ID: (context) => tipsScreen(),
         eventDetailsScreen.ID: (context) => eventDetailsScreen(),
         chatWithDoctorScreen.ID: (context) => chatWithDoctorScreen(),
-        chatScreen.ID: (context) => chatScreen(),
+        chatScreen.ID: (context) => const chatScreen(),
         appointmentScreen.ID: (context) => appointmentScreen(),
         exerciseScreen.ID: (context) => exerciseScreen(),
         caloriesScreen.ID: (context) => caloriesScreen(),
-        doctorHomeScreen.ID: (context) => doctorHomeScreen(),
+        doctorHomeScreen.ID: (context) => const doctorHomeScreen(),
         chatWithPatientScreen.ID: (context) => chatWithPatientScreen(),
         doctorChatScreen.ID: (context) => doctorChatScreen(),
         addAppointmentsScreen.ID: (context) => addAppointmentsScreen(),
         PostsScreen.ID: (context) => PostsScreen(),
         DoctorProfile.ID: (context) => DoctorProfile(),
         postCommentsScreen.ID: (context) => postCommentsScreen(),
-        docPostCommentsScreen.ID: (context) => docPostCommentsScreen(),
+        docPostCommentsScreen.ID: (context) => const docPostCommentsScreen(),
         UserDetailsScreen.ID: (context) => UserDetailsScreen(),
         AddRelativeScreen.ID: (context) => AddRelativeScreen(),
         reportScreen.ID: (context) => reportScreen(),

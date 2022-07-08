@@ -5,7 +5,7 @@ import 'package:icare/screens/post_comments_screen.dart';
 
 
 class DocReusbleComment extends StatelessWidget {
-  DocReusbleComment({required this.senderName, required this.comment});
+  const DocReusbleComment({Key? key, required this.senderName, required this.comment}) : super(key: key);
   final String senderName;
   final String comment;
 
